@@ -9,11 +9,7 @@ export default function Button({
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="bg-palette-orange min-h-10 rounded-lg px-6 py-2 text-base font-bold tracking-wider text-white"
-    >
+    <button type="button" onClick={onClick} className="btn">
       {children}
     </button>
   );

@@ -54,3 +54,9 @@ export interface PexelsResponseType {
   ];
   next_page: string;
 }
+
+export type FullStoryType = {
+  story: ContentDetailesType;
+  photo: PexelsResponseType;
+  time: string;
+};
