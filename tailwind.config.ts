@@ -14,6 +14,10 @@ const config: Config = {
           dark: '#909090',
           light: '#9b9b9b',
         },
+        'palette-blue': {
+          dark: '#109BE9',
+          light: '#CFECFC',
+        },
       },
     },
   },
