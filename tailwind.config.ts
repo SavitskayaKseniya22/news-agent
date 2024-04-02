@@ -19,6 +19,59 @@ const config: Config = {
           light: '#CFECFC',
         },
       },
+      width: {
+        '320': '80rem',
+      },
+      fontSize: {
+        h1: [
+          '3.875rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.3%',
+            fontWeight: '700',
+          },
+        ],
+        h4: [
+          '2rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '700',
+          },
+        ],
+        'h6-bold': [
+          '1rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '700',
+          },
+        ],
+        'h6-semibold': [
+          '1rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '500',
+          },
+        ],
+        caption: [
+          '0.75rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.8%',
+            fontWeight: '500',
+          },
+        ],
+        content: [
+          '1rem',
+          {
+            lineHeight: '125%',
+            letterSpacing: '0.5%',
+            fontWeight: '300',
+          },
+        ],
+      },
     },
   },
   plugins: [],
