@@ -10,8 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         'palette-orange': '#f36326',
-        'palette-gray': '#909090',
-        'palette-blue': '#CFECFC',
+        'palette-gray': {
+          dark: '#909090',
+          light: '#9b9b9b',
+        },
       },
     },
   },
