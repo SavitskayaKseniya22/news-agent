@@ -60,6 +60,16 @@ export type FullStoryType = {
   photo: PexelsResponseType;
   time: string;
 };
+
+export interface UserType {
+  id: string;
+  created: number;
+  karma: number;
+  delay?: number;
+  about?: string;
+  submitted?: number[];
+}
+
 export enum StoryPreviewType {
   SMALL,
   MEDIUM,

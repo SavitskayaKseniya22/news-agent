@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ContentDetailesType } from '../types';
+import { ContentDetailesType, UserType } from '../types';
 
 export const hackerNewsApi = createApi({
   reducerPath: 'hackerNewsApi',
@@ -31,9 +31,9 @@ export const hackerNewsApi = createApi({
         method: 'GET',
       }),
     }),
-    getUser: builder.query<ContentDetailesType, { id: number }>({
+    getUser: builder.query<UserType, { id: string }>({
       query: ({ id }) => ({
-        url: `item/${id}.json?print=pretty`,
+        url: `user/${id}.json?print=pretty`,
         method: 'GET',
       }),
     }),
