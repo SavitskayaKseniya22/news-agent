@@ -13,7 +13,13 @@ export default function useGetFullStory({ id }: { id: number }) {
   const content = useGetStoryQuery({ id });
 
   const photo = useGetPhotosQuery(
-    { query: content.data?.title || 'unknown' },
+    {
+      query:
+        content.data?.title
+          ?.split('')
+          .filter((item) => item.match(/[\s\w]/))
+          .join('') || 'unknown',
+    },
     { skip: !content.isSuccess },
   );
 
