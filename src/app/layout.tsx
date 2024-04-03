@@ -20,10 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${mulish.className} bg-pattern flex min-h-screen flex-col items-center gap-8`}
+        className={`${mulish.className} bg-pattern flex min-h-screen flex-col items-center gap-4`}
       >
         <Providers>{children}</Providers>
-
         <Footer />
       </body>
     </html>
