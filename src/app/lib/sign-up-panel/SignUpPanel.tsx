@@ -1,5 +1,3 @@
-import Button from '../button/Button';
-
 export default function SignUpPanel() {
   return (
     <div
@@ -18,7 +16,10 @@ export default function SignUpPanel() {
           placeholder="Input your email address here"
           className="min-h-10 flex-grow rounded-lg px-6 py-2 text-h6-semibold font-bold tracking-wider"
         />
-        <Button>Subscribe Now</Button>
+
+        <button type="button" className="btn btn_orange">
+          Subscribe Now
+        </button>
       </div>
     </div>
   );
