@@ -60,3 +60,9 @@ export type FullStoryType = {
   photo: PexelsResponseType;
   time: string;
 };
+export enum StoryPreviewType {
+  SMALL,
+  MEDIUM,
+  BIG,
+  GIGANTIC,
+}

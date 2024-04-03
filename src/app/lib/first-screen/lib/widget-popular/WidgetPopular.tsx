@@ -1,4 +1,5 @@
-import WidgetPopularItem from './lib/widget-popular-item/WidgetPopularItem';
+import { StoryPreviewType } from '@/app/types';
+import Story from '../../../story/Story';
 
 export default function WidgetPopular({ ids }: { ids: number[] }) {
   return (
@@ -6,7 +7,11 @@ export default function WidgetPopular({ ids }: { ids: number[] }) {
       <h4 className="text-h4 text-white">Popular today</h4>
       <ul className="flex flex-grow flex-col justify-between gap-2">
         {new Array(7).fill(0).map((item, index) => (
-          <WidgetPopularItem id={ids[index]} key={ids[index]} />
+          <Story
+            id={ids[index]}
+            key={ids[index]}
+            type={StoryPreviewType.SMALL}
+          />
         ))}
       </ul>
     </div>

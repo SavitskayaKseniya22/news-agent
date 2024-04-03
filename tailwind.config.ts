@@ -22,6 +22,9 @@ const config: Config = {
       width: {
         '320': '80rem',
       },
+      height: {
+        '128': '32rem',
+      },
       fontSize: {
         h1: [
           '3.875rem',
@@ -39,6 +42,15 @@ const config: Config = {
             fontWeight: '700',
           },
         ],
+        h5: [
+          '1.5rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '700',
+          },
+        ],
+
         'h6-bold': [
           '1rem',
           {

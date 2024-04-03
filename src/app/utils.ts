@@ -4,5 +4,9 @@ export function parseUnixTimeStamp(timestamp: number) {
 }
 
 export function refineTitle(string: string) {
-  return string.split(' ').map((item) => item[0].toUpperCase() + item.slice(1)).join(" ");
+  return string
+    .split(' ')
+    .filter((item) => item.length > 0)
+    .map((item) => item[0].toUpperCase() + item.slice(1))
+    .join(' ');
 }
