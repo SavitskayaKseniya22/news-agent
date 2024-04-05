@@ -1,6 +1,7 @@
+import Listing from '@/app/lib/listing/Listing';
 import Pagination from '@/app/lib/pagination/Pagination';
 import Story from '@/app/lib/story/Story';
-import { StoryPreviewType } from '@/app/types';
+import { ContentViewType, ListingType, StoryPreviewType } from '@/app/types';
 import { useRef, useReducer, useState, useEffect } from 'react';
 
 export function reducer(
@@ -36,10 +37,19 @@ export function reducer(
   }
 }
 
-export default function PageContent({ data }: { data: number[] }) {
+export default function PageContent({
+  data,
+  type,
+  itemsOnPage,
+  typeOfListing,
+}: {
+  data: number[];
+  type: ContentViewType;
+  itemsOnPage: number;
+  // eslint-disable-next-line react/require-default-props
+  typeOfListing?: ListingType;
+}) {
   const initialState = { page: 1 };
-
-  const itemsOnPage = 16;
 
   const range = useRef({
     min: 1,
@@ -63,10 +73,16 @@ export default function PageContent({ data }: { data: number[] }) {
 
   return (
     <main className="flex w-320 flex-grow flex-col items-center justify-between gap-8 p-2">
-      <ul className=" grid flex-grow grid-cols-4 grid-rows-4 gap-2">
-        {content.map((item) => (
-          <Story id={item} key={item} type={StoryPreviewType.MEDIUM} />
-        ))}
+      <ul
+        className={`${type === 'story' ? 'grid-cols-4 grid-rows-4 gap-2' : 'grid-cols-2 grid-rows-8 gap-4'} grid flex-grow`}
+      >
+        {content.map((item) =>
+          type === 'story' ? (
+            <Story id={item} key={item} type={StoryPreviewType.MEDIUM} />
+          ) : (
+            <Listing id={item} key={item} type={typeOfListing} />
+          ),
+        )}
       </ul>
       <Pagination
         onIncrease={() => {

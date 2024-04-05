@@ -1,7 +1,7 @@
 'use client';
 
 import { useGetBestStoriesQuery } from '@/app/store/hackerNewsApi';
-
+import { ContentViewType } from '@/app/types';
 import PageContent from '../lib/page-content/PageContent';
 
 export default function Page() {
@@ -12,6 +12,8 @@ export default function Page() {
   if (isLoading) return <div>Loading</div>;
 
   if (data) {
-    return <PageContent data={data} />;
+    return (
+      <PageContent data={data} type={ContentViewType.STORY} itemsOnPage={16} />
+    );
   }
 }

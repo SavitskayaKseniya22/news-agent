@@ -76,3 +76,13 @@ export enum StoryPreviewType {
   BIG,
   GIGANTIC,
 }
+
+export enum ContentViewType {
+  'STORY' = 'story',
+  'LISTING' = 'listing',
+}
+
+export enum ListingType {
+  'JOB' = 'job',
+  'QUESTION' = 'question',
+}
