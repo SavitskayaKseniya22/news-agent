@@ -16,6 +16,6 @@ export default function Story({
   if (isLoading) return <div>Loading</div>;
 
   if (data) {
-    return <StoryPreview data={data} type={type} id={id} />;
+    return <StoryPreview data={data} type={type} />;
   }
 }

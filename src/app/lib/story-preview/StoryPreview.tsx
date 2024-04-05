@@ -7,12 +7,9 @@ import SocialsInfo from '../socials-info/SocialsInfo';
 export default function StoryPreview({
   type,
   data,
-  id,
 }: {
   type: StoryPreviewType;
   data: FullStoryType;
-  // eslint-disable-next-line react/require-default-props
-  id?: number;
 }) {
   const { story, photo, time } = data;
   const title = story.title ? refineTitle(story.title) : 'Item Without Title';
@@ -82,7 +79,6 @@ export default function StoryPreview({
           alt={imageAlt}
           className="h-12 w-full flex-grow object-cover"
         />
-        {id}
         <div className="flex flex-col items-center justify-center gap-4 p-2 text-center">
           <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
             {title}
