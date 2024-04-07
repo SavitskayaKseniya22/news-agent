@@ -25,12 +25,11 @@ export interface ContentDetailesType {
 }
 export interface ParsedContentDetailesType {
   id: number;
-  
+
   deleted?: boolean;
   dead?: boolean;
   parent?: number;
   poll?: number;
-  url?: string;
   parts?: number[];
 
   time: string;
@@ -41,6 +40,7 @@ export interface ParsedContentDetailesType {
   type: string;
   text: string;
   kids: number[];
+  url: string;
 }
 
 export interface PexelsResponseType {

@@ -17,13 +17,12 @@ export default function Listing({
   if (isLoading) return <div>Loading</div>;
 
   if (data) {
-    const url = data.url || 'https://www.google.com/';
+    const { title, time, score, descendants, by, url } = data;
 
-    const cutUrl = data.url
-      ? data.url.slice(url.indexOf('//') + 2, data.url.indexOf('/', 8))
-      : 'Unknown source';
-
-    const { title, time, score, descendants, by } = data;
+    const cutUrl =
+      url === 'https://www.google.com/'
+        ? 'Unknown source'
+        : url.slice(url.indexOf('//') + 2, url.indexOf('/', 8));
 
     return (
       <li className="border-2">

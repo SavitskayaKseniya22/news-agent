@@ -37,25 +37,22 @@ export const hackerNewsApi = createApi({
       }),
       transformResponse: (
         response: ContentDetailesType,
-      ): ParsedContentDetailesType => {
-        const copy = {
-          ...response,
-          time:
-            (response.time && parseUnixTimeStamp(response.time)) ||
-            'Some time ago',
-          title: response.title
-            ? refineTitle(response.title)
-            : 'Item Without Title',
-          score: response.score || 0,
-          descendants: response.descendants || 0,
-          by: response.by || 'Unknown author',
-          type: response.type || 'Unclassified',
-          text: response.text || '',
-          kids: response.kids || [],
-        };
-
-        return copy;
-      },
+      ): ParsedContentDetailesType => ({
+        ...response,
+        time:
+          (response.time && parseUnixTimeStamp(response.time)) ||
+          'Some time ago',
+        title: response.title
+          ? refineTitle(response.title)
+          : 'Item Without Title',
+        score: response.score || 0,
+        descendants: response.descendants || 0,
+        by: response.by || 'Unknown author',
+        type: response.type || 'Unclassified',
+        text: response.text || '',
+        kids: response.kids || [],
+        url: response.url || 'https://www.google.com/',
+      }),
     }),
     getUser: builder.query<UserType, { id: string }>({
       query: ({ id }) => ({

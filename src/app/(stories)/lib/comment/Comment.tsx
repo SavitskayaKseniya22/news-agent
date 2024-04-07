@@ -14,7 +14,7 @@ export default function Comment({ id }: { id: number }) {
   if (data) {
     const { time, by, kids, text } = data;
     return (
-      <li className="flex w-320 flex-col gap-4 rounded-lg border-2 bg-white p-4">
+      <li className="w-312 flex flex-col gap-4 rounded-lg border-2 bg-white p-4">
         <div className="flex justify-between">
           <span className="text-h6-bold">{by}</span>
           <span className="text-h6-semibold">{time}</span>

@@ -5,6 +5,7 @@ import { StoryPreviewType } from '@/app/types';
 import { useParams } from 'next/navigation';
 import parse from 'html-react-parser';
 import { useGetStoryQuery } from '@/app/store/hackerNewsApi';
+import Link from 'next/dist/client/link';
 import Comment from '../lib/comment/Comment';
 
 export default function Page() {
@@ -20,7 +21,7 @@ export default function Page() {
   if (isLoading) return <div>Loading</div>;
 
   if (data) {
-    const { title, time, score, descendants, by, text } = data;
+    const { title, time, score, descendants, by, text, url } = data;
     return (
       <main className="flex w-320 flex-grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-6">
@@ -36,7 +37,11 @@ export default function Page() {
             type={StoryPreviewType.GIGANTIC}
           />
 
-          <p className="text-content">{parse(text)}</p>
+          {text.length ? <p className="text-content">{parse(text)}</p> : ''}
+
+          <Link className="btn btn_orange self-end" href={`/${url}`}>
+            Source
+          </Link>
         </div>
 
         <ul className="flex flex-col gap-4">
