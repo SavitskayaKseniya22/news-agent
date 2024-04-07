@@ -34,6 +34,22 @@ const config: Config = {
             fontWeight: '700',
           },
         ],
+        h2: [
+          '3rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '500',
+          },
+        ],
+        h3: [
+          '2.5rem',
+          {
+            lineHeight: '120%',
+            letterSpacing: '0.5%',
+            fontWeight: '500',
+          },
+        ],
         h4: [
           '2rem',
           {

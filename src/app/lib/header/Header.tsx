@@ -38,9 +38,15 @@ export default function Header() {
           <button type="button" className="btn btn_orange">
             <ArrowPathIcon />
           </button>
-          <Link href="/#subscription" className="btn btn_orange">
-            Subscribe
-          </Link>
+          {pathname === '/' ? (
+            <Link href="/#subscription" className="btn btn_orange">
+              Subscribe
+            </Link>
+          ) : (
+            <button className="btn btn_orange" type="button">
+              Add Story
+            </button>
+          )}
         </div>
       </div>
     </header>

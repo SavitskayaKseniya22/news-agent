@@ -10,6 +10,9 @@ const mulish = Mulish({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'News agent',
   description: 'Website for viewing news',
+  icons: {
+    icon: './favicon.png',
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${mulish.className} bg-pattern flex min-h-screen flex-col items-center gap-4`}
+        className={`${mulish.className} bg-pattern flex min-h-screen flex-col items-center justify-between gap-4`}
       >
         <Providers>{children}</Providers>
         <Footer />

@@ -12,7 +12,7 @@ export default function FirstScreen() {
   return (
     <div className="flex h-dvh w-full flex-col bg-palette-gray-dark">
       <Header />
-      <div className="grid h-full w-320 flex-grow grid-cols-5 grid-rows-3 place-content-center gap-8 self-center p-16">
+      <div className="grid max-h-full w-320 flex-grow grid-cols-5 grid-rows-3 place-content-center gap-8 self-center p-16">
         <div className="col-start-1 col-end-4 row-start-1 row-end-3 ">
           {isLoading && <div>Loading</div>}
           {isError && <div>An error has occurred!</div>}
