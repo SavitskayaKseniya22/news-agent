@@ -30,30 +30,40 @@ export const hackerNewsApi = createApi({
     getJobStories: builder.query<number[], void>({
       query: () => ({ url: `/jobstories.json?print=pretty`, method: 'GET' }),
     }),
-    getStory: builder.query<ParsedContentDetailesType, { id: number }>({
+    getStory: builder.query<ParsedContentDetailesType | null, { id: number }>({
       query: ({ id }) => ({
         url: `item/${id}.json?print=pretty`,
         method: 'GET',
       }),
       transformResponse: (
         response: ContentDetailesType,
-      ): ParsedContentDetailesType => ({
-        ...response,
-        time:
-          (response.time && parseUnixTimeStamp(response.time)) ||
-          'Some time ago',
-        title: response.title
-          ? refineTitle(response.title)
-          : 'Item Without Title',
-        score: response.score || 0,
-        descendants: response.descendants || 0,
-        by: response.by || 'Unknown author',
-        type: response.type || 'Unclassified',
-        text: response.text || '',
-        kids: response.kids || [],
-        url: response.url || 'https://www.google.com/',
-      }),
+      ): ParsedContentDetailesType | null => {
+        if (
+          response.type === 'comment' &&
+          (response.text === undefined || response.text.length === 0)
+        ) {
+          return null;
+        }
+
+        return {
+          ...response,
+          time:
+            (response.time && parseUnixTimeStamp(response.time)) ||
+            'Some time ago',
+          title: response.title
+            ? refineTitle(response.title)
+            : 'Item Without Title',
+          score: response.score || 0,
+          descendants: response.descendants || 0,
+          by: response.by || 'Unknown author',
+          type: response.type || 'Unclassified',
+          text: response.text || '',
+          kids: response.kids || [],
+          url: response.url || 'https://www.google.com/',
+        };
+      },
     }),
+
     getUser: builder.query<UserType, { id: string }>({
       query: ({ id }) => ({
         url: `user/${id}.json?print=pretty`,

@@ -23,7 +23,7 @@ export default function useGetFullStory({ id }: { id: number }) {
   );
 
   useEffect(() => {
-    if (content.isSuccess && photo.isSuccess) {
+    if (content.isSuccess && photo.isSuccess && content.data !== null) {
       setIsSuccess(true);
       setData({
         story: content.data,

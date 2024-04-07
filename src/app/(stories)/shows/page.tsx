@@ -2,7 +2,7 @@
 
 import { useGetShowStoriesQuery } from '@/app/store/hackerNewsApi';
 import { ContentViewType } from '@/app/types';
-import PageContent from '../lib/page-content/PageContent';
+import PageContent from '@/app/lib/page-content/PageContent';
 
 export default function Page() {
   const { data, isError, isLoading } = useGetShowStoriesQuery();

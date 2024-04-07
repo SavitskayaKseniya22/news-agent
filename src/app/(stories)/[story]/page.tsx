@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import parse from 'html-react-parser';
 import { useGetStoryQuery } from '@/app/store/hackerNewsApi';
 import Link from 'next/dist/client/link';
-import Comment from '../lib/comment/Comment';
+import Comment from '@/app/lib/comment/Comment';
 
 export default function Page() {
   const params = useParams();
@@ -39,7 +39,11 @@ export default function Page() {
 
           {text.length ? <p className="text-content">{parse(text)}</p> : ''}
 
-          <Link className="btn btn_orange self-end" href={`/${url}`}>
+          <Link
+            className="btn btn_orange self-end"
+            href={`${url}`}
+            target="_blank"
+          >
             Source
           </Link>
         </div>
@@ -54,4 +58,5 @@ export default function Page() {
       </main>
     );
   }
+  return null;
 }
