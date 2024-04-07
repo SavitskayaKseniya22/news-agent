@@ -1,6 +1,5 @@
 import { useGetStoryQuery } from '@/app/store/hackerNewsApi';
 import { ListingType, StoryPreviewType } from '@/app/types';
-import { parseUnixTimeStamp, refineTitle } from '@/app/utils';
 import Link from 'next/dist/client/link';
 import SocialsInfo from '../socials-info/SocialsInfo';
 
@@ -18,34 +17,26 @@ export default function Listing({
   if (isLoading) return <div>Loading</div>;
 
   if (data) {
-    const title = data.title ? refineTitle(data.title) : 'Item Without Title';
-    const descendants = data.descendants || 0;
-    const score = data.score || 0;
-    const author = data.by || 'Unknown author';
-
-    const time =
-      (data.time && parseUnixTimeStamp(data.time)) || 'Some time ago';
-
-    const url = data.url ? data.url : 'https://www.google.com/';
+    const url = data.url || 'https://www.google.com/';
 
     const cutUrl = data.url
       ? data.url.slice(url.indexOf('//') + 2, data.url.indexOf('/', 8))
       : 'Unknown source';
 
-    const pageUrl = `/${title.split(' ').join('-').toLocaleLowerCase()}`;
+    const { title, time, score, descendants, by } = data;
 
     return (
       <li className="border-2">
         <Link
           className="flex h-full flex-col items-center justify-center gap-1 p-2 text-center"
           target={type === ListingType.JOB ? '_blank' : '_self'}
-          href={type === ListingType.JOB ? url : pageUrl}
+          href={type === ListingType.JOB ? url : `/${id}`}
         >
           <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
             {title}
           </h6>
           <div className="flex w-full items-center justify-between gap-4 text-palette-gray-light">
-            <span className="text-caption">{author}</span>
+            <span className="text-caption">{by}</span>
             {type === ListingType.JOB ? (
               <div>{cutUrl}</div>
             ) : (

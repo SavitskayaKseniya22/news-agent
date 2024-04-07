@@ -23,6 +23,25 @@ export interface ContentDetailesType {
   parts?: number[];
   descendants?: number;
 }
+export interface ParsedContentDetailesType {
+  id: number;
+  
+  deleted?: boolean;
+  dead?: boolean;
+  parent?: number;
+  poll?: number;
+  url?: string;
+  parts?: number[];
+
+  time: string;
+  title: string;
+  score: number;
+  descendants: number;
+  by: string;
+  type: string;
+  text: string;
+  kids: number[];
+}
 
 export interface PexelsResponseType {
   total_results: number;
@@ -56,9 +75,8 @@ export interface PexelsResponseType {
 }
 
 export type FullStoryType = {
-  story: ContentDetailesType;
+  story: ParsedContentDetailesType;
   photo: PexelsResponseType;
-  time: string;
 };
 
 export interface UserType {

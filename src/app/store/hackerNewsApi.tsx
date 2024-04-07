@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ContentDetailesType, UserType } from '../types';
+import {
+  ContentDetailesType,
+  ParsedContentDetailesType,
+  UserType,
+} from '../types';
+import { parseUnixTimeStamp, refineTitle } from '../utils';
 
 export const hackerNewsApi = createApi({
   reducerPath: 'hackerNewsApi',
@@ -25,11 +30,32 @@ export const hackerNewsApi = createApi({
     getJobStories: builder.query<number[], void>({
       query: () => ({ url: `/jobstories.json?print=pretty`, method: 'GET' }),
     }),
-    getStory: builder.query<ContentDetailesType, { id: number }>({
+    getStory: builder.query<ParsedContentDetailesType, { id: number }>({
       query: ({ id }) => ({
         url: `item/${id}.json?print=pretty`,
         method: 'GET',
       }),
+      transformResponse: (
+        response: ContentDetailesType,
+      ): ParsedContentDetailesType => {
+        const copy = {
+          ...response,
+          time:
+            (response.time && parseUnixTimeStamp(response.time)) ||
+            'Some time ago',
+          title: response.title
+            ? refineTitle(response.title)
+            : 'Item Without Title',
+          score: response.score || 0,
+          descendants: response.descendants || 0,
+          by: response.by || 'Unknown author',
+          type: response.type || 'Unclassified',
+          text: response.text || '',
+          kids: response.kids || [],
+        };
+
+        return copy;
+      },
     }),
     getUser: builder.query<UserType, { id: string }>({
       query: ({ id }) => ({

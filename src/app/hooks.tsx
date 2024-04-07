@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useGetStoryQuery } from './store/hackerNewsApi';
 import { useGetPhotosQuery } from './store/pexelsApi';
 import { FullStoryType } from './types';
-import { parseUnixTimeStamp } from './utils';
 
 export default function useGetFullStory({ id }: { id: number }) {
   const [data, setData] = useState<null | FullStoryType>(null);
@@ -16,7 +15,7 @@ export default function useGetFullStory({ id }: { id: number }) {
     {
       query:
         content.data?.title
-          ?.split('')
+          .split('')
           .filter((item) => item.match(/[\s\w]/))
           .join('') || 'unknown',
     },
@@ -29,9 +28,6 @@ export default function useGetFullStory({ id }: { id: number }) {
       setData({
         story: content.data,
         photo: photo.data,
-        time:
-          (content.data.time && parseUnixTimeStamp(content.data.time)) ||
-          'Some time ago',
       });
     }
   }, [content.data, content.isSuccess, photo.data, photo.isSuccess]);

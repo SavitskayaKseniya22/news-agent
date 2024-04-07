@@ -1,5 +1,4 @@
 import { StoryPreviewType, FullStoryType } from '@/app/types';
-import { refineTitle } from '@/app/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import SocialsInfo from '../socials-info/SocialsInfo';
@@ -11,18 +10,15 @@ export default function StoryPreview({
   type: StoryPreviewType;
   data: FullStoryType;
 }) {
-  const { story, photo, time } = data;
-  const title = story.title ? refineTitle(story.title) : 'Item Without Title';
-  const storyType = story.type || 'unclassified';
+  const { story, photo } = data;
+  const { title, time, score, descendants, by, type: storyType } = story;
+
   const imageSrc = photo.photos[0]?.src?.medium || '/image-placeholder.png';
-  const imageAlt = photo.photos[0]?.alt || story.title || 'story';
-  const descendants = story.descendants || 0;
-  const score = story.score || 0;
-  const author = story.by || 'Unknown author';
+  const imageAlt = photo.photos[0]?.alt || story.title;
 
   if (type === StoryPreviewType.SMALL) {
     return (
-      <li>
+      <li className="min-h-24 flex-shrink-0">
         <Link href="/#" className="flex gap-4">
           <Image
             width={130}
@@ -50,7 +46,7 @@ export default function StoryPreview({
         <div className="flex justify-between">
           <h6 className="text-h6-bold text-white">{time}</h6>
           <div className="flex flex-col gap-4">
-            <h6 className="text-h6-bold text-white">{author}</h6>
+            <h6 className="text-h6-bold text-white">{by}</h6>
             <h6 className="text-caption text-palette-blue-light">
               {storyType}
             </h6>
@@ -62,7 +58,7 @@ export default function StoryPreview({
         <div className="flex items-center justify-between">
           <SocialsInfo score={score} descendants={descendants} type={type} />
 
-          <Link className="btn" href="/">
+          <Link className="btn btn_orange" href="/">
             Follow
           </Link>
         </div>
@@ -84,7 +80,7 @@ export default function StoryPreview({
             {title}
           </h6>
           <div className="flex w-full items-center justify-between gap-4 text-palette-gray-light">
-            <span className="text-caption">{author}</span>
+            <span className="text-caption">{by}</span>
             <span className="text-caption">{time}</span>
           </div>
           <div className="absolute right-0 top-0 bg-white p-2 ">
