@@ -1,6 +1,6 @@
-import Listing from '@/app/lib/listing/Listing';
+import { Listings } from '@/app/lib/listing/Listing';
 import Pagination from '@/app/lib/pagination/Pagination';
-import Story from '@/app/lib/story/Story';
+import { Stories } from '@/app/lib/story/Story';
 import { ContentViewType, ListingType, StoryPreviewType } from '@/app/types';
 import { useRef, useReducer, useState, useEffect } from 'react';
 
@@ -73,17 +73,18 @@ export default function PageContent({
 
   return (
     <main className="flex w-320 flex-grow flex-col items-center justify-between gap-8 p-2">
-      <ul
-        className={`${type === 'story' ? 'grid-cols-4 grid-rows-4 gap-2' : 'grid-cols-2 grid-rows-8 gap-4'} grid flex-grow`}
-      >
-        {content.map((item) =>
-          type === 'story' ? (
-            <Story id={item} key={item} type={StoryPreviewType.MEDIUM} />
-          ) : (
-            <Listing id={item} key={item} type={typeOfListing} />
-          ),
-        )}
-      </ul>
+      {type === 'story' && (
+        <ul className="grid flex-grow grid-cols-4 grid-rows-4 gap-2">
+          <Stories kids={content} type={StoryPreviewType.MEDIUM} />
+        </ul>
+      )}
+
+      {type === 'listing' && typeOfListing !== undefined && (
+        <ul className="grid flex-grow grid-cols-2 grid-rows-8 gap-4">
+          <Listings kids={content} type={typeOfListing} />
+        </ul>
+      )}
+
       <Pagination
         onIncrease={() => {
           if (state.page < range.current.max) {

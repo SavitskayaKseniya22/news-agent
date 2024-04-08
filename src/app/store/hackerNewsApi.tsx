@@ -4,7 +4,8 @@ import {
   ParsedContentDetailesType,
   UserType,
 } from '../types';
-import { parseUnixTimeStamp, refineTitle } from '../utils';
+
+import { refineStoryResponse } from '../utils';
 
 export const hackerNewsApi = createApi({
   reducerPath: 'hackerNewsApi',
@@ -37,31 +38,7 @@ export const hackerNewsApi = createApi({
       }),
       transformResponse: (
         response: ContentDetailesType,
-      ): ParsedContentDetailesType | null => {
-        if (
-          response.type === 'comment' &&
-          (response.text === undefined || response.text.length === 0)
-        ) {
-          return null;
-        }
-
-        return {
-          ...response,
-          time:
-            (response.time && parseUnixTimeStamp(response.time)) ||
-            'Some time ago',
-          title: response.title
-            ? refineTitle(response.title)
-            : 'Item Without Title',
-          score: response.score || 0,
-          descendants: response.descendants || 0,
-          by: response.by || 'Unknown author',
-          type: response.type || 'Unclassified',
-          text: response.text || '',
-          kids: response.kids || [],
-          url: response.url || 'https://www.google.com/',
-        };
-      },
+      ): ParsedContentDetailesType | null => refineStoryResponse({ response }),
     }),
 
     getUser: builder.query<UserType, { id: string }>({

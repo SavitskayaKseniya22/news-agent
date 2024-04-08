@@ -6,22 +6,22 @@ import { useParams } from 'next/navigation';
 import parse from 'html-react-parser';
 import { useGetStoryQuery } from '@/app/store/hackerNewsApi';
 import Link from 'next/dist/client/link';
-import Comment from '@/app/lib/comment/Comment';
+import { Comments } from '@/app/lib/comment/Comment';
 
 export default function Page() {
   const params = useParams();
 
-  const { data, isError, isLoading } = useGetStoryQuery(
+  const story = useGetStoryQuery(
     { id: params.story as unknown as number },
     { skip: !params.story },
   );
 
-  if (isError) return <div>An error has occurred!</div>;
+  if (story.isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (story.isLoading) return <div>Loading</div>;
 
-  if (data) {
-    const { title, time, score, descendants, by, text, url } = data;
+  if (story.data) {
+    const { title, time, score, descendants, by, text, url } = story.data;
     return (
       <main className="flex w-320 flex-grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-6">
@@ -48,13 +48,15 @@ export default function Page() {
           </Link>
         </div>
 
-        <ul className="flex flex-col gap-4">
-          {data.kids.length ? (
-            data.kids.map((item) => <Comment id={item} key={item} />)
-          ) : (
-            <li className="text-content">No comments here yet</li>
-          )}
-        </ul>
+        <Comments kids={story.data.kids} />
+
+        <button
+          type="button"
+          className="btn btn_orange self-end"
+          onClick={() => {}}
+        >
+          Load More
+        </button>
       </main>
     );
   }
