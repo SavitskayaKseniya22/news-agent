@@ -26,6 +26,8 @@ export default function StoryPreview({
             src={imageSrc}
             alt={imageAlt}
             className="h-24 w-32 flex-shrink-0 bg-white object-cover object-center"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk4OSsBwAAtgCTDcYLIwAAAABJRU5ErkJggg=="
           />
           <div className="flex flex-grow flex-col justify-center gap-4">
             <h6 className="text-h6-bold">{title}</h6>
@@ -78,6 +80,8 @@ export default function StoryPreview({
             src={imageSrc}
             alt={imageAlt}
             className="h-12 w-full flex-grow object-cover"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk4OSsBwAAtgCTDcYLIwAAAABJRU5ErkJggg=="
           />
           <div className="flex flex-col items-center justify-center gap-4 p-2 text-center">
             <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
