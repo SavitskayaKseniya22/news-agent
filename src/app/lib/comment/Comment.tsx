@@ -17,7 +17,7 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
         <span className="text-h6-semibold">{time}</span>
       </div>
 
-      <p className="text-content">{parse(text)}</p>
+      <p className="indent-4 text-content">{parse(text)}</p>
 
       <button
         className="flex items-center gap-2 self-end"

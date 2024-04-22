@@ -12,7 +12,7 @@ const config: Config = {
         'palette-orange': '#f36326',
         'palette-gray': {
           dark: '#909090',
-          light: '#9b9b9b',
+          light: '#c3c3c3',
         },
         'palette-blue': {
           dark: '#109BE9',
@@ -95,7 +95,7 @@ const config: Config = {
         content: [
           '1rem',
           {
-            lineHeight: '125%',
+            lineHeight: '150%',
             letterSpacing: '0.5%',
             fontWeight: '300',
           },

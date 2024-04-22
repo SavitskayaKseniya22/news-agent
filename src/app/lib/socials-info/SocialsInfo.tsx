@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { StoryPreviewType } from '@/app/types';
 import { HeartIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 
@@ -12,7 +13,7 @@ export default function SocialsInfo({
 }) {
   if (type === StoryPreviewType.GIGANTIC) {
     return (
-      <ul className="flex justify-center gap-4 text-h6-semibold text-white">
+      <ul className="flex justify-center gap-4 text-h6-semibold text-black">
         <li className="flex items-center gap-2 ">
           <HeartIcon className="h-6 w-6 text-palette-blue-light" />
           {score}
@@ -25,7 +26,7 @@ export default function SocialsInfo({
     );
   }
   return (
-    <ul className="flex justify-center gap-4 text-caption text-black ">
+    <ul className="flex justify-center gap-4 text-caption text-black">
       <li className="flex items-center gap-2">
         <HeartIcon className="h-4 w-4 text-palette-blue-dark" />
         {score}

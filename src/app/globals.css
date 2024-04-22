@@ -2,19 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-button{
-  @apply disabled:opacity-20
+button {
+  @apply disabled:opacity-20;
 }
 
-.btn{
-  @apply  min-h-10 rounded-lg px-6 py-2 text-base font-bold disabled:opacity-20 tracking-wider;
-  
+.btn {
+  @apply min-h-10 rounded-lg px-6 py-2 text-base font-bold tracking-wider disabled:opacity-20;
 }
 
-.btn svg{
-  @apply w-6 h-6
+.btn svg {
+  @apply h-6 w-6;
 }
 
-.btn_orange{
-  @apply bg-palette-orange text-white
+.btn_orange {
+  @apply bg-palette-orange text-white;
+}
+
+pre {
+  @apply m-4 rounded-lg bg-palette-gray-light p-4;
 }
