@@ -71,7 +71,15 @@ export const queryApi = createApi({
                 .then((photo: PexelsResponseType) => ({
                   story: refinedStory,
                   photo,
-                }));
+                }))
+                .catch((error) => {
+                  console.error(error);
+
+                  return {
+                    story: refinedStory,
+                    photo: null,
+                  };
+                });
             }),
         );
 
@@ -107,12 +115,20 @@ export const queryApi = createApi({
           { method: 'GET', headers: { Authorization: `${apiKey}` } },
         );
 
-        const photo: PexelsResponseType = await photoResponse.json();
+        if (photoResponse.ok) {
+          const photo = await photoResponse.json();
+          return {
+            data: {
+              story: refinedStory,
+              photo,
+            },
+          };
+        }
 
         return {
           data: {
             story: refinedStory,
-            photo,
+            photo: null,
           },
         };
       },

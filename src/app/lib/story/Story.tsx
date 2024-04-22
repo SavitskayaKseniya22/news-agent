@@ -1,5 +1,8 @@
 import StoryPreview from '@/app/lib/story-preview/StoryPreview';
-import { useGetFullStoryQuery, useGetAllFullStoriesQuery } from '@/app/store/queryApi';
+import {
+  useGetFullStoryQuery,
+  useGetAllFullStoriesQuery,
+} from '@/app/store/queryApi';
 
 import { StoryPreviewType } from '@/app/types';
 
@@ -10,11 +13,11 @@ export default function Story({
   id: number;
   type: StoryPreviewType;
 }) {
-  const { data, isLoading, isError } = useGetFullStoryQuery(id);
+  const { data, isFetching, isError } = useGetFullStoryQuery(id);
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     return <StoryPreview data={data} type={type} />;
@@ -28,10 +31,10 @@ export function Stories({
   kids: number[];
   type: StoryPreviewType;
 }) {
-  const { data, isLoading, isError } = useGetAllFullStoriesQuery(kids);
+  const { data, isFetching, isError } = useGetAllFullStoriesQuery(kids);
 
   if (isError) return <div>An error has occurred!</div>;
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     if (data.length) {

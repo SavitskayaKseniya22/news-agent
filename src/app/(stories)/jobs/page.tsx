@@ -5,11 +5,11 @@ import { useGetJobStoriesQuery } from '@/app/store/hackerNewsApi';
 import { ContentViewType, ListingType } from '@/app/types';
 
 export default function Page() {
-  const { data, isError, isLoading } = useGetJobStoriesQuery();
+  const { data, isError, isFetching } = useGetJobStoriesQuery();
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     return (

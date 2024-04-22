@@ -36,11 +36,11 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
 }
 
 export function Comments({ kids }: { kids: number[] }) {
-  const { data, isLoading, isError } = useGetAllStoriesQuery(kids);
+  const { data, isFetching, isError } = useGetAllStoriesQuery(kids);
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     return (

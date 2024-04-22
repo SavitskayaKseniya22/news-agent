@@ -25,7 +25,6 @@ export interface ContentDetailesType {
 }
 export interface ParsedContentDetailesType {
   id: number;
-
   deleted?: boolean;
   dead?: boolean;
   parent?: number;
@@ -76,7 +75,7 @@ export interface PexelsResponseType {
 
 export type FullStoryType = {
   story: ParsedContentDetailesType;
-  photo: PexelsResponseType;
+  photo: PexelsResponseType | null;
 };
 
 export interface UserType {

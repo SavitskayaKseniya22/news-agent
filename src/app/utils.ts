@@ -10,7 +10,9 @@ export function refineTitle(string: string) {
     .split(' ')
     .filter((item) => item.length > 0)
     .map((item) => item[0].toUpperCase() + item.slice(1))
-    .join(' ');
+    .join(' ')
+    .replace('Ask HN: ', '')
+    .replace('Show HN: ', '');
 }
 
 export function refineStoryResponse({
@@ -38,5 +40,3 @@ export function refineStoryResponse({
     url: response.url || 'https://www.google.com/',
   };
 }
-
-

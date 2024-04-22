@@ -13,13 +13,13 @@ export default function StoryPreview({
   const { story, photo } = data;
   const { title, time, score, descendants, by, type: storyType, id } = story;
 
-  const imageSrc = photo.photos[0]?.src?.medium || '/image-placeholder.png';
-  const imageAlt = photo.photos[0]?.alt || story.title;
+  const imageSrc = photo?.photos[0]?.src?.medium || '/image-placeholder.png';
+  const imageAlt = photo?.photos[0]?.alt || story.title;
 
   if (type === StoryPreviewType.SMALL) {
     return (
       <li className="min-h-24 flex-shrink-0">
-        <Link href={`/${id}`} className="flex gap-4">
+        <Link href={`/story/${id}`} className="flex gap-4">
           <Image
             width={130}
             height={100}
@@ -60,7 +60,7 @@ export default function StoryPreview({
         <div className="flex items-center justify-between">
           <SocialsInfo score={score} descendants={descendants} type={type} />
 
-          <Link className="btn btn_orange" href={`/${id}`}>
+          <Link className="btn btn_orange" href={`/story/${id}`}>
             Follow
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default function StoryPreview({
     return (
       <li className="w-74 gap-2 border-2">
         <Link
-          href={`/${id}`}
+          href={`/story/${id}`}
           className="relative flex h-full w-full flex-shrink-0 flex-col"
         >
           <Image

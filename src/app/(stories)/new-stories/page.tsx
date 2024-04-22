@@ -5,11 +5,11 @@ import { useGetNewStoriesQuery } from '@/app/store/hackerNewsApi';
 import { ContentViewType } from '@/app/types';
 
 export default function Page() {
-  const { data, isError, isLoading } = useGetNewStoriesQuery();
+  const { data, isError, isFetching } = useGetNewStoriesQuery();
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     return (

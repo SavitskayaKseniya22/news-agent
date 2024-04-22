@@ -26,7 +26,7 @@ export default function Listing({
       <Link
         className="flex h-full flex-col items-center justify-center gap-1 p-2 text-center"
         target={type === ListingType.JOB ? '_blank' : '_self'}
-        href={type === ListingType.JOB ? url : `/${id}`}
+        href={type === ListingType.JOB ? url : `/story/${id}`}
       >
         <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
           {title}
@@ -57,11 +57,11 @@ export function Listings({
   kids: number[];
   type: ListingType;
 }) {
-  const { data, isLoading, isError } = useGetAllStoriesQuery(kids);
+  const { data, isFetching, isError } = useGetAllStoriesQuery(kids);
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <div>Loading</div>;
 
   if (data) {
     return data.length ? (

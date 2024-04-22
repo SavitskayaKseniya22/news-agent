@@ -18,34 +18,39 @@ export default function Page() {
 
   if (story.isError) return <div>An error has occurred!</div>;
 
-  if (story.isLoading) return <div>Loading</div>;
+  if (story.isFetching) return <div>Loading</div>;
 
   if (story.data) {
     const { title, time, score, descendants, by, text, url } = story.data;
     return (
       <main className="flex w-320 flex-grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-6">
-          <div className="flex justify-between">
-            <span>{by}</span>
+          <div className="flex justify-between gap-4">
+            <span className="text-h6-bold">{by}</span>
             <span className="text-h6-semibold">{time}</span>
           </div>
           <h1 className="text-h3">{title}</h1>
 
-          <SocialsInfo
-            score={score}
-            descendants={descendants}
-            type={StoryPreviewType.GIGANTIC}
-          />
+          {text.length ? (
+            <p className="indent-4 text-content">{parse(text)}</p>
+          ) : (
+            ''
+          )}
 
-          {text.length ? <p className="text-content">{parse(text)}</p> : ''}
-
-          <Link
-            className="btn btn_orange self-end"
-            href={`${url}`}
-            target="_blank"
-          >
-            Source
-          </Link>
+          <div className="flex justify-between gap-4">
+            <SocialsInfo
+              score={score}
+              descendants={descendants}
+              type={StoryPreviewType.GIGANTIC}
+            />
+            <Link
+              className="btn btn_orange self-end"
+              href={`${url}`}
+              target="_blank"
+            >
+              Source
+            </Link>
+          </div>
         </div>
 
         <Comments kids={story.data.kids} />
