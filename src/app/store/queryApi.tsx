@@ -14,6 +14,7 @@ export const queryApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: '',
   }),
+  refetchOnMountOrArgChange: 1,
   endpoints: (builder) => ({
     getAllStories: builder.query({
       queryFn: async (ids: number[]) => {

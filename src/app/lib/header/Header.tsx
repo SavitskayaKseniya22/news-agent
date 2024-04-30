@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-
 'use client';
 
 import { usePathname } from 'next/dist/client/components/navigation';
 import Link from 'next/link';
 import Logo from '@/app/lib/logo/Logo';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
   const pathname = usePathname();
@@ -35,13 +32,16 @@ export default function Header() {
         </ul>
 
         <div className="flex gap-4">
-          <button type="button" className="btn btn_orange">
-            <ArrowPathIcon />
-          </button>
           {pathname === '/' ? (
-            <Link href="/#subscription" className="btn btn_orange">
-              Subscribe
-            </Link>
+            <>
+              <Link href="/#subscription" className="btn btn_orange">
+                Subscribe
+              </Link>
+
+              <button className="btn btn_orange" type="button">
+                Add Story
+              </button>
+            </>
           ) : (
             <button className="btn btn_orange" type="button">
               Add Story

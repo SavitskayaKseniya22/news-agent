@@ -3,9 +3,10 @@
 import { useGetShowStoriesQuery } from '@/app/store/hackerNewsApi';
 import { ContentViewType } from '@/app/types';
 import PageContent from '@/app/lib/page-content/PageContent';
+import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
 
 export default function Page() {
-  const { data, isError, isFetching } = useGetShowStoriesQuery();
+  const { data, isError, isFetching, refetch } = useGetShowStoriesQuery();
 
   if (isError) return <div>An error has occurred!</div>;
 
@@ -13,7 +14,19 @@ export default function Page() {
 
   if (data) {
     return (
-      <PageContent data={data} type={ContentViewType.STORY} itemsOnPage={16} />
+      <>
+        <PageContent
+          data={data}
+          type={ContentViewType.STORY}
+          itemsOnPage={16}
+        />
+        <RefetchButton
+          istItDisabled={!data}
+          onClick={() => {
+            refetch();
+          }}
+        />
+      </>
     );
   }
 }
