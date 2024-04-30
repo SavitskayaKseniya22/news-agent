@@ -31,7 +31,7 @@ export default function StoryPreview({
           />
           <div className="flex flex-grow flex-col justify-center gap-4">
             <h6 className="text-h6-bold">{title}</h6>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-4">
               <span className="text-caption text-palette-blue-light">
                 {storyType}
               </span>

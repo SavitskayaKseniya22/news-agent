@@ -6,6 +6,7 @@ import {
 import Link from 'next/dist/client/link';
 import { useGetAllStoriesQuery } from '@/app/store/queryApi';
 import SocialsInfo from '../socials-info/SocialsInfo';
+import ListingPlaceholder from './ListingPlaceholder';
 
 export default function Listing({
   type,
@@ -61,7 +62,7 @@ export function Listings({
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isFetching) return <div>Loading</div>;
+  if (isFetching) return <ListingPlaceholder length={kids.length} />;
 
   if (data) {
     return data.length ? (

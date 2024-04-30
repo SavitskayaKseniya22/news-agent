@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import StoryPreview from '@/app/lib/story-preview/StoryPreview';
 import {
   useGetFullStoryQuery,
@@ -5,6 +6,7 @@ import {
 } from '@/app/store/queryApi';
 
 import { StoryPreviewType } from '@/app/types';
+import StoryPlaceholder from '../story-placeholder/StoryPlaceholder';
 
 export default function Story({
   id,
@@ -34,7 +36,7 @@ export function Stories({
   const { data, isFetching, isError } = useGetAllFullStoriesQuery(kids);
 
   if (isError) return <div>An error has occurred!</div>;
-  if (isFetching) return <div>Loading</div>;
+  if (isFetching) return <StoryPlaceholder length={kids.length} type={type} />;
 
   if (data) {
     if (data.length) {

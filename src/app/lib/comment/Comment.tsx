@@ -5,13 +5,14 @@ import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import parse from 'html-react-parser';
 import { useState } from 'react';
+import CommentPlaceholder from './CommentPlaceholder';
 
 export default function Comment({ data }: { data: ParsedContentDetailesType }) {
   const [isItOpen, setIsItOPen] = useState(false);
   const { time, by, kids, text } = data;
 
   return (
-    <li className="flex w-312 flex-col gap-4 rounded-lg border-2 bg-white p-4">
+    <li className="comment flex w-312 flex-col gap-4 rounded-lg border-2  p-4">
       <div className="flex justify-between">
         <span className="text-h6-bold">{by}</span>
         <span className="text-h6-semibold">{time}</span>
@@ -40,7 +41,12 @@ export function Comments({ kids }: { kids: number[] }) {
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isFetching) return <div>Loading</div>;
+  if (isFetching)
+    return (
+      <ul className="flex flex-col gap-4">
+        <CommentPlaceholder length={2} />
+      </ul>
+    );
 
   if (data) {
     return (

@@ -74,13 +74,13 @@ export default function PageContent({
   return (
     <main className="flex w-320 flex-grow flex-col items-center justify-between gap-8 p-2">
       {type === 'story' && (
-        <ul className="grid flex-grow grid-cols-4 grid-rows-4 gap-2">
+        <ul className="grid w-full flex-grow grid-cols-4 grid-rows-4 gap-2">
           <Stories kids={content} type={StoryPreviewType.MEDIUM} />
         </ul>
       )}
 
       {type === 'listing' && typeOfListing !== undefined && (
-        <ul className="grid flex-grow grid-cols-2 grid-rows-8 gap-4">
+        <ul className="grid w-full flex-grow grid-cols-2 grid-rows-8 gap-4">
           <Listings kids={content} type={typeOfListing} />
         </ul>
       )}
