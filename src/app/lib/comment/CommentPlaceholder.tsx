@@ -3,7 +3,7 @@
 export default function CommentPlaceholder({ length }: { length: number }) {
   return new Array(length).fill(0).map((j, i) => (
     <li
-      className="comment flex w-312 animate-pulse flex-col gap-6 rounded-lg border-2 p-4"
+      className="comment container flex animate-pulse flex-col gap-6 rounded-lg border-2 p-4"
       key={i}
     >
       <div className="flex justify-between gap-4">

@@ -19,10 +19,7 @@ const config: Config = {
           light: '#CFECFC',
         },
       },
-      width: {
-        '320': '80rem',
-        '312': '78rem',
-      },
+
       height: {
         '128': '32rem',
       },
@@ -31,7 +28,7 @@ const config: Config = {
           '3.875rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.3%',
+            letterSpacing: '0.003em',
             fontWeight: '700',
           },
         ],
@@ -39,7 +36,7 @@ const config: Config = {
           '3rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '500',
           },
         ],
@@ -47,7 +44,7 @@ const config: Config = {
           '2.5rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '500',
           },
         ],
@@ -55,7 +52,7 @@ const config: Config = {
           '2rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '700',
           },
         ],
@@ -63,7 +60,7 @@ const config: Config = {
           '1.5rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '700',
           },
         ],
@@ -72,7 +69,7 @@ const config: Config = {
           '1rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '700',
           },
         ],
@@ -80,7 +77,7 @@ const config: Config = {
           '1rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '500',
           },
         ],
@@ -88,7 +85,7 @@ const config: Config = {
           '0.75rem',
           {
             lineHeight: '120%',
-            letterSpacing: '0.8%',
+            letterSpacing: '0.008em',
             fontWeight: '500',
           },
         ],
@@ -96,7 +93,7 @@ const config: Config = {
           '1rem',
           {
             lineHeight: '150%',
-            letterSpacing: '0.5%',
+            letterSpacing: '0.005em',
             fontWeight: '300',
           },
         ],

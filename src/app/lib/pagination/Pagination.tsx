@@ -26,7 +26,7 @@ export default function Pagination({
   const isItLast = page + 1 > range.max;
 
   return (
-    <div className="flex gap-8">
+    <div className="flex gap-1 sm:gap-4">
       <button
         type="button"
         onClick={onFirst}
@@ -45,7 +45,7 @@ export default function Pagination({
         <ChevronLeftIcon />
       </button>
 
-      <ul className="flex items-center justify-center gap-4">
+      <ul className="flex items-center justify-center gap-4 p-1">
         <li>
           <button type="button" onClick={onDecrease} disabled={isItFirst}>
             {page - 1}

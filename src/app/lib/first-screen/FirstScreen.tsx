@@ -13,7 +13,7 @@ export default function FirstScreen() {
   return (
     <div className="flex h-dvh w-full flex-col bg-palette-gray-dark">
       <Header />
-      <div className="grid max-h-full w-320 flex-grow grid-cols-3 grid-rows-5 place-content-center gap-8 self-center p-16">
+      <div className="container grid max-h-full flex-grow grid-cols-3 grid-rows-5 place-content-center gap-8 self-center p-16">
         <div className="col-start-1 col-end-3 row-start-1 row-end-3">
           {isFetching && <div>Loading</div>}
           {isError && <div>An error has occurred!</div>}

@@ -12,8 +12,8 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
   const { time, by, kids, text } = data;
 
   return (
-    <li className="comment flex w-312 flex-col gap-4 rounded-lg border-2  p-4">
-      <div className="flex justify-between">
+    <li className="comment container flex flex-col gap-4 rounded-lg border-2 bg-white p-2 sm:p-4">
+      <div className="flex flex-wrap justify-between gap-2">
         <span className="text-h6-bold">{by}</span>
         <span className="text-h6-semibold">{time}</span>
       </div>
@@ -44,7 +44,7 @@ export function Comments({ kids }: { kids: number[] }) {
   if (isFetching)
     return (
       <ul className="flex flex-col gap-4">
-        <CommentPlaceholder length={2} />
+        <CommentPlaceholder length={kids.length} />
       </ul>
     );
 

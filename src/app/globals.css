@@ -7,17 +7,22 @@ button {
 }
 
 .btn {
-  @apply min-h-10 rounded-lg px-6 py-2 text-base font-bold tracking-wider disabled:opacity-20;
+  @apply flex min-h-10 items-center justify-center rounded-lg px-4 py-1 text-base font-bold tracking-wider disabled:opacity-20 sm:px-6 sm:py-2;
 }
 
 .btn svg {
-  @apply h-6 w-6;
+  @apply h-5 w-5 sm:h-6 sm:w-6;
 }
 
 .btn_orange {
   @apply bg-palette-orange text-white;
 }
 
-pre {
-  @apply m-4 rounded-lg bg-palette-gray-light p-4;
+.comment {
+  pre {
+    @apply m-4 whitespace-pre-wrap rounded-lg bg-palette-gray-light p-4;
+  }
+  a {
+    @apply text-palette-blue-dark;
+  }
 }

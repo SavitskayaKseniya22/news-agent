@@ -12,7 +12,8 @@ export function refineTitle(string: string) {
     .map((item) => item[0].toUpperCase() + item.slice(1))
     .join(' ')
     .replace('Ask HN: ', '')
-    .replace('Show HN: ', '');
+    .replace('Show HN: ', '')
+    .replace('Tell HN: ', '');
 }
 
 export function refineStoryResponse({

@@ -15,12 +15,12 @@ export default function Header() {
   ];
   return (
     <header className="flex w-full items-center justify-center border-b border-white bg-palette-gray-dark">
-      <div className="flex w-320 items-center justify-between gap-4 p-4">
+      <div className="container flex flex-wrap items-center justify-between gap-4 p-4 lg:flex-nowrap">
         <Logo />
 
-        <ul className="flex gap-4 text-white ">
+        <ul className="order-3 flex w-full flex-wrap items-center justify-center gap-2 text-white lg:order-2">
           {paths.map((path) => (
-            <li className="w-32 text-center" key={path}>
+            <li className="w-28 text-center xl:w-32" key={path}>
               <Link
                 href={path}
                 className={`hover:text-slate-900 ${pathname === path ? 'text-palette-blue-light' : ''}`}
@@ -31,21 +31,15 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="flex gap-4">
-          {pathname === '/' ? (
-            <>
-              <Link href="/#subscription" className="btn btn_orange">
-                Subscribe
-              </Link>
+        <div className="order-2 flex items-center gap-4 lg:order-3">
+          <button className="btn btn_orange text-nowrap" type="button">
+            Add Story
+          </button>
 
-              <button className="btn btn_orange" type="button">
-                Add Story
-              </button>
-            </>
-          ) : (
-            <button className="btn btn_orange" type="button">
-              Add Story
-            </button>
+          {pathname === '/' && (
+            <Link href="/#subscription" className="btn btn_orange">
+              Subscribe
+            </Link>
           )}
         </div>
       </div>

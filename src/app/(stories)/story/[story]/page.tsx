@@ -26,7 +26,7 @@ export default function Page() {
   if (data) {
     const { title, time, score, descendants, by, text, url } = data;
     return (
-      <main className="flex w-320 flex-grow flex-col gap-12 p-4">
+      <main className="container flex flex-grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-12">
           <div className="flex justify-between gap-4">
             <span className="text-h6-bold">{by}</span>
@@ -40,7 +40,7 @@ export default function Page() {
             ''
           )}
 
-          <div className="flex justify-between gap-4">
+          <div className="flex flex-wrap justify-between gap-4">
             <SocialsInfo
               score={currentData?.score || score}
               descendants={currentData?.descendants || descendants}

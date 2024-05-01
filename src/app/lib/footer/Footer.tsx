@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="border-palette-gray-dark bg-palette-gray-dark flex w-full items-center justify-center border-t">
-      <div className="w-320 flex items-center justify-between p-4">
+    <footer className="flex w-full items-center justify-center border-t border-palette-gray-dark bg-palette-gray-dark">
+      <div className="container flex items-center justify-between p-4">
         <Logo />
         <Link href="https://github.com/SavitskayaKseniya22" target="_blank">
           <Image

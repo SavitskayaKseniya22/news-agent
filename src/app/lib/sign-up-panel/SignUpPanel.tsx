@@ -1,7 +1,7 @@
 export default function SignUpPanel() {
   return (
     <div
-      className="flex w-320 flex-col items-center gap-8 bg-palette-blue-dark p-16 text-white"
+      className="container flex flex-col items-center gap-8 bg-palette-blue-dark p-4 text-white sm:p-8 lg:p-12"
       id="subscription"
     >
       <h1 className="text-h1">Sign Up for Our Newsletters</h1>
@@ -10,7 +10,7 @@ export default function SignUpPanel() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
       </p>
 
-      <div className="flex gap-4 self-stretch">
+      <div className="flex flex-wrap gap-4 self-stretch">
         <input
           type="text"
           placeholder="Input your email address here"

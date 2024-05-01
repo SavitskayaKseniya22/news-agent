@@ -25,26 +25,27 @@ export default function Listing({
   return (
     <li className="border-2">
       <Link
-        className="flex h-full flex-col items-center justify-center gap-1 p-2 text-center"
+        className="flex h-full flex-col items-center justify-center gap-4 p-2 text-center"
         target={type === ListingType.JOB ? '_blank' : '_self'}
         href={type === ListingType.JOB ? url : `/story/${id}`}
       >
         <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
           {title}
         </h6>
-        <div className="flex w-full items-center justify-between gap-4 text-palette-gray-light">
-          <span className="text-caption">{by}</span>
+        <div className="flex w-full flex-wrap items-center justify-between gap-2 text-palette-gray-light">
+          <span className="order-2 text-caption sm:order-1">{by}</span>
           {type === ListingType.JOB ? (
-            <div>{cutUrl}</div>
+            <div className="order-1 w-full sm:order-2 sm:w-auto">{cutUrl}</div>
           ) : (
             <SocialsInfo
               score={score}
               descendants={descendants}
               type={StoryPreviewType.MEDIUM}
+              classList="order-2 sm:w-auto "
             />
           )}
 
-          <span className="text-caption">{time}</span>
+          <span className="order-3 text-caption">{time}</span>
         </div>
       </Link>
     </li>

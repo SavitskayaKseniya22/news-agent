@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth text-[14px] sm:text-base">
       <body
         className={`${mulish.className} bg-pattern flex min-h-screen flex-col items-center justify-between gap-4`}
       >

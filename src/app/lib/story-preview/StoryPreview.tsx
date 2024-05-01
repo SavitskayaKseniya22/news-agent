@@ -18,7 +18,7 @@ export default function StoryPreview({
 
   if (type === StoryPreviewType.SMALL) {
     return (
-      <li className="min-h-24 flex-shrink-0">
+      <li className="min-h-24 flex-shrink-0 ">
         <Link href={`/story/${id}`} className="flex gap-4">
           <Image
             width={130}
@@ -69,7 +69,7 @@ export default function StoryPreview({
   }
   if (type === StoryPreviewType.MEDIUM) {
     return (
-      <li className="w-74 gap-2 border-2">
+      <li className="gap-2 border-2">
         <Link
           href={`/story/${id}`}
           className="relative flex h-full w-full flex-shrink-0 flex-col"
@@ -79,9 +79,9 @@ export default function StoryPreview({
             height={350}
             src={imageSrc}
             alt={imageAlt}
-            className="h-12 w-full flex-grow object-cover"
+            className="h-16 w-full flex-grow object-cover"
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk4OSsBwAAtgCTDcYLIwAAAABJRU5ErkJggg=="
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP0+Q8AAZ0BTSKFuNAAAAAASUVORK5CYII="
           />
           <div className="flex flex-col items-center justify-center gap-4 p-2 text-center">
             <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
