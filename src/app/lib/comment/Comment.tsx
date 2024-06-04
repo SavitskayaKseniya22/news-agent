@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
 import { useGetAllStoriesQuery } from '@/app/store/queryApi';
 import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';

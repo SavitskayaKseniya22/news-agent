@@ -6,8 +6,8 @@ export default function SignUpPanel() {
     >
       <h1 className="text-h1">Sign Up for Our Newsletters</h1>
       <p className="text-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod.
       </p>
 
       <div className="flex flex-wrap gap-4 self-stretch">

@@ -17,11 +17,7 @@ export default function Page() {
   if (data) {
     return (
       <>
-        <PageContent
-          data={data}
-          type={ContentViewType.STORY}
-          itemsOnPage={16}
-        />
+        <PageContent data={data} type={ContentViewType.STORY} itemsOnPage={16} />
         <RefetchButton
           istItDisabled={!data}
           onClick={() => {

@@ -13,11 +13,10 @@ import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
 export default function Page() {
   const params = useParams();
 
-  const { data, isFetching, isError, refetch, isLoading, currentData } =
-    useGetStoryQuery(
-      { id: params.story as unknown as number },
-      { skip: !params.story },
-    );
+  const { data, isFetching, isError, refetch, isLoading, currentData } = useGetStoryQuery(
+    { id: params.story as unknown as number },
+    { skip: !params.story },
+  );
 
   if (isError) return <div>An error has occurred!</div>;
 
@@ -34,11 +33,7 @@ export default function Page() {
           </div>
           <h1 className="text-h3">{title}</h1>
 
-          {text.length ? (
-            <p className="indent-4 text-content">{parse(text)}</p>
-          ) : (
-            ''
-          )}
+          {text.length ? <p className="indent-4 text-content">{parse(text)}</p> : ''}
 
           <div className="flex flex-wrap justify-between gap-4">
             <SocialsInfo
@@ -54,11 +49,7 @@ export default function Page() {
                 }}
               />
 
-              <Link
-                className="btn btn_orange self-end"
-                href={`${url}`}
-                target="_blank"
-              >
+              <Link className="btn btn_orange self-end" href={`${url}`} target="_blank">
                 Source
               </Link>
             </div>

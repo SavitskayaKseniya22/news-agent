@@ -15,10 +15,8 @@ export default function SocialsInfo({
 }) {
   if (type === StoryPreviewType.GIGANTIC) {
     return (
-      <ul
-        className={`flex justify-center gap-4 text-h6-semibold text-black ${classList}`}
-      >
-        <li className="flex items-center gap-2 ">
+      <ul className={`flex justify-center gap-4 text-h6-semibold text-black ${classList}`}>
+        <li className="flex items-center gap-2">
           <HeartIcon className="h-6 w-6 text-palette-blue-light" />
           {score}
         </li>
@@ -30,9 +28,7 @@ export default function SocialsInfo({
     );
   }
   return (
-    <ul
-      className={`flex justify-center gap-4 text-caption text-black ${classList}`}
-    >
+    <ul className={`flex justify-center gap-4 text-caption text-black ${classList}`}>
       <li className="flex items-center gap-2">
         <HeartIcon className="h-4 w-4 text-palette-blue-dark" />
         {score}

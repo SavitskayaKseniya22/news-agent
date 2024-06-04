@@ -8,12 +8,7 @@ export default function Footer() {
       <div className="container flex items-center justify-between p-4">
         <Logo />
         <Link href="https://github.com/SavitskayaKseniya22" target="_blank">
-          <Image
-            src="/github-mark-white.png"
-            alt="gitHub"
-            width={32}
-            height={32}
-          />
+          <Image src="/github-mark-white.png" alt="gitHub" width={32} height={32} />
         </Link>
       </div>
     </footer>

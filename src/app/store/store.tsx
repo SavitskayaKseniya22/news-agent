@@ -11,10 +11,7 @@ const store = configureStore({
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(pexelsApi.middleware)
-      .concat(hackerNewsApi.middleware)
-      .concat(queryApi.middleware),
+    getDefaultMiddleware().concat(pexelsApi.middleware).concat(hackerNewsApi.middleware).concat(queryApi.middleware),
 });
 
 export default store;

@@ -16,21 +16,13 @@ export function refineTitle(string: string) {
     .replace('Tell HN: ', '');
 }
 
-export function refineStoryResponse({
-  response,
-}: {
-  response: ContentDetailesType;
-}): ParsedContentDetailesType | null {
-  if (
-    response.type === 'comment' &&
-    (response.text === undefined || response.text.length === 0)
-  ) {
+export function refineStoryResponse({ response }: { response: ContentDetailesType }): ParsedContentDetailesType | null {
+  if (response.type === 'comment' && (response.text === undefined || response.text.length === 0)) {
     return null;
   }
   return {
     ...response,
-    time:
-      (response.time && parseUnixTimeStamp(response.time)) || 'Some time ago',
+    time: (response.time && parseUnixTimeStamp(response.time)) || 'Some time ago',
     title: response.title ? refineTitle(response.title) : 'Item Without Title',
     score: response.score || 0,
     descendants: response.descendants || 0,

@@ -1,26 +1,14 @@
-import {
-  ListingType,
-  ParsedContentDetailesType,
-  StoryPreviewType,
-} from '@/app/types';
+import { ListingType, ParsedContentDetailesType, StoryPreviewType } from '@/app/types';
 import Link from 'next/dist/client/link';
 import { useGetAllStoriesQuery } from '@/app/store/queryApi';
 import SocialsInfo from '../socials-info/SocialsInfo';
 import ListingPlaceholder from './ListingPlaceholder';
 
-export default function Listing({
-  type,
-  data,
-}: {
-  type: ListingType;
-  data: ParsedContentDetailesType;
-}) {
+export default function Listing({ type, data }: { type: ListingType; data: ParsedContentDetailesType }) {
   const { title, time, score, descendants, by, url, id } = data;
 
   const cutUrl =
-    url === 'https://www.google.com/'
-      ? 'Unknown source'
-      : url.slice(url.indexOf('//') + 2, url.indexOf('/', 8));
+    url === 'https://www.google.com/' ? 'Unknown source' : url.slice(url.indexOf('//') + 2, url.indexOf('/', 8));
 
   return (
     <li className="border-2">
@@ -29,9 +17,7 @@ export default function Listing({
         target={type === ListingType.JOB ? '_blank' : '_self'}
         href={type === ListingType.JOB ? url : `/story/${id}`}
       >
-        <h6 className="flex flex-grow items-center justify-center text-h6-semibold">
-          {title}
-        </h6>
+        <h6 className="flex flex-grow items-center justify-center text-h6-semibold">{title}</h6>
         <div className="flex w-full flex-wrap items-center justify-between gap-2 text-palette-gray-light">
           <span className="order-2 text-caption sm:order-1">{by}</span>
           {type === ListingType.JOB ? (
@@ -52,13 +38,7 @@ export default function Listing({
   );
 }
 
-export function Listings({
-  kids,
-  type,
-}: {
-  kids: number[];
-  type: ListingType;
-}) {
+export function Listings({ kids, type }: { kids: number[]; type: ListingType }) {
   const { data, isFetching, isError } = useGetAllStoriesQuery(kids);
 
   if (isError) return <div>An error has occurred!</div>;

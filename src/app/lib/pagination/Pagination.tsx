@@ -27,21 +27,11 @@ export default function Pagination({
 
   return (
     <div className="flex gap-1 sm:gap-4">
-      <button
-        type="button"
-        onClick={onFirst}
-        disabled={isItFirst}
-        className="btn"
-      >
+      <button type="button" onClick={onFirst} disabled={isItFirst} className="btn">
         <ChevronDoubleLeftIcon />
       </button>
 
-      <button
-        type="button"
-        onClick={onDecrease}
-        disabled={isItFirst}
-        className="btn"
-      >
+      <button type="button" onClick={onDecrease} disabled={isItFirst} className="btn">
         <ChevronLeftIcon />
       </button>
 
@@ -61,21 +51,11 @@ export default function Pagination({
         </li>
       </ul>
 
-      <button
-        type="button"
-        onClick={onIncrease}
-        disabled={isItLast}
-        className="btn"
-      >
+      <button type="button" onClick={onIncrease} disabled={isItLast} className="btn">
         <ChevronRightIcon />
       </button>
 
-      <button
-        type="button"
-        onClick={onLast}
-        disabled={isItLast}
-        className="btn"
-      >
+      <button type="button" onClick={onLast} disabled={isItLast} className="btn">
         <ChevronDoubleRightIcon />
       </button>
     </div>

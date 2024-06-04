@@ -2,13 +2,7 @@
 
 import { StoryPreviewType } from '@/app/types';
 
-export default function StoryPlaceholder({
-  length,
-  type,
-}: {
-  length: number;
-  type: StoryPreviewType;
-}) {
+export default function StoryPlaceholder({ length, type }: { length: number; type: StoryPreviewType }) {
   if (type === StoryPreviewType.MEDIUM) {
     return new Array(length).fill(0).map((j, i) => (
       <li className="flex w-full animate-pulse flex-col gap-2 border-2" key={i}>

@@ -62,12 +62,7 @@ export default function PageContent({
 
   useEffect(() => {
     if (data) {
-      setContent(
-        data.slice(
-          (state.page - 1) * itemsOnPage,
-          (state.page - 1) * itemsOnPage + itemsOnPage,
-        ),
-      );
+      setContent(data.slice((state.page - 1) * itemsOnPage, (state.page - 1) * itemsOnPage + itemsOnPage));
     }
   }, [state.page]);
 
@@ -75,7 +70,7 @@ export default function PageContent({
     <main className="container flex flex-grow flex-col items-center justify-between gap-8 p-2">
       {type === 'story' && (
         <ul className="grid w-full flex-grow grid-rows-4 gap-2 md:grid-cols-2 xl:grid-cols-4">
-          <Stories kids={content} type={StoryPreviewType.MEDIUM} />
+          <Stories kids={content} length={content.length} type={StoryPreviewType.MEDIUM} />
         </ul>
       )}
 

@@ -15,12 +15,7 @@ export default function Page() {
   if (data) {
     return (
       <>
-        <PageContent
-          data={data}
-          type={ContentViewType.LISTING}
-          itemsOnPage={16}
-          typeOfListing={ListingType.JOB}
-        />
+        <PageContent data={data} type={ContentViewType.LISTING} itemsOnPage={16} typeOfListing={ListingType.JOB} />
         <RefetchButton
           istItDisabled={!data}
           onClick={() => {

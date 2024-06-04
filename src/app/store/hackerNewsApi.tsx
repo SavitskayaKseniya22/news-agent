@@ -1,9 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  ContentDetailesType,
-  ParsedContentDetailesType,
-  UserType,
-} from '../types';
+import { ContentDetailesType, ParsedContentDetailesType, UserType } from '../types';
 
 import { refineStoryResponse } from '../utils';
 
@@ -36,9 +32,8 @@ export const hackerNewsApi = createApi({
         url: `item/${id}.json?print=pretty`,
         method: 'GET',
       }),
-      transformResponse: (
-        response: ContentDetailesType,
-      ): ParsedContentDetailesType | null => refineStoryResponse({ response }),
+      transformResponse: (response: ContentDetailesType): ParsedContentDetailesType | null =>
+        refineStoryResponse({ response }),
     }),
 
     getUser: builder.query<UserType, { id: string }>({

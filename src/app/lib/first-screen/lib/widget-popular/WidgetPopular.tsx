@@ -1,13 +1,14 @@
 import { StoryPreviewType } from '@/app/types';
+import { useGetTopStoriesQuery } from '@/app/store/hackerNewsApi';
 import { Stories } from '../../../story/Story';
 
-export default function WidgetPopular({ ids }: { ids: number[] }) {
+export default function WidgetPopular() {
+  const { data, isError } = useGetTopStoriesQuery();
+
   return (
-    <div className="flex h-full w-full flex-col gap-4 bg-palette-gray-light p-4">
-      <h4 className="text-h4 text-white">Popular today</h4>
-      <ul className="flex flex-grow flex-col justify-between gap-2">
-        <Stories kids={ids.slice(0, 7)} type={StoryPreviewType.SMALL} />
-      </ul>
-    </div>
+    <ul className="flex flex-grow flex-col justify-between gap-2 overflow-x-auto">
+      {isError && <div>An error has occurred!</div>}
+      <Stories kids={data} length={10} type={StoryPreviewType.SMALL} />
+    </ul>
   );
 }
