@@ -14,7 +14,7 @@ export default function SignUpPanel() {
         <input
           type="text"
           placeholder="Input your email address here"
-          className="min-h-10 flex-grow rounded-lg px-6 py-2 text-h6-semibold font-bold tracking-wider"
+          className="min-h-10 grow rounded-lg px-6 py-2 text-h6-semibold font-bold tracking-wider"
         />
 
         <button type="button" className="btn btn_orange">

@@ -67,15 +67,15 @@ export default function PageContent({
   }, [state.page]);
 
   return (
-    <main className="container flex flex-grow flex-col items-center justify-between gap-8 p-2">
+    <main className="container flex grow flex-col items-center justify-between gap-8 p-2">
       {type === 'story' && (
-        <ul className="grid w-full flex-grow grid-rows-4 gap-2 md:grid-cols-2 xl:grid-cols-4">
+        <ul className="grid w-full grow grid-rows-4 gap-2 md:grid-cols-2 xl:grid-cols-4">
           <Stories kids={content} length={content.length} type={StoryPreviewType.MEDIUM} />
         </ul>
       )}
 
       {type === 'listing' && typeOfListing !== undefined && (
-        <ul className="grid w-full flex-grow grid-rows-8 gap-4 lg:grid-cols-2">
+        <ul className="grid w-full grow grid-rows-8 gap-4 lg:grid-cols-2">
           <Listings kids={content} type={typeOfListing} />
         </ul>
       )}

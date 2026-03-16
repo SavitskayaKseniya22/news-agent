@@ -25,7 +25,7 @@ export default function Page() {
   if (data) {
     const { title, time, score, descendants, by, text, url } = data;
     return (
-      <main className="container flex flex-grow flex-col gap-12 p-4">
+      <main className="container flex grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-12">
           <div className="flex justify-between gap-4">
             <span className="text-h6-bold">{by}</span>
