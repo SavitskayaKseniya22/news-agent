@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Mulish } from 'next/font/google';
 import './globals.css';
-
 import Footer from './lib/footer/Footer';
 import Providers from './store/provider';
 

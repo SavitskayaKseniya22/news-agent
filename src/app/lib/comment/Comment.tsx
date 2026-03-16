@@ -42,7 +42,9 @@ export function Comments({ kids }: { kids: number[] }) {
   if (isFetching)
     return (
       <ul className="flex flex-col gap-4">
-        <CommentPlaceholder length={kids.length} />
+        {kids.map((item) => {
+          return <CommentPlaceholder key={item} />;
+        })}
       </ul>
     );
 
