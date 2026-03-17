@@ -3,12 +3,13 @@
 import { usePathname } from 'next/dist/client/components/navigation';
 import Link from 'next/link';
 import Logo from '@/app/lib/logo/Logo';
+import Button from '@/shared/ui/Button';
 
 export default function Header() {
   const pathname = usePathname();
   const paths = ['/best-stories', '/new-stories', '/questions', '/shows', '/jobs'];
   return (
-    <header className="flex w-full items-center justify-center border-b border-white bg-palette-gray-dark">
+    <header className="bg-palette-gray-dark flex w-full items-center justify-center border-b border-white">
       <div className="container flex flex-wrap items-center justify-between gap-4 p-4 lg:flex-nowrap">
         <Logo />
 
@@ -26,14 +27,14 @@ export default function Header() {
         </ul>
 
         <div className="order-2 flex items-center gap-4 lg:order-3">
-          <button className="btn btn_orange text-nowrap" type="button">
+          <Button type="button" view="primary" size={'big'}>
             Add Story
-          </button>
+          </Button>
 
           {pathname === '/' && (
-            <Link href="/#subscription" className="btn btn_orange">
+            <Button view={'secondary'} size={'big'}>
               Subscribe
-            </Link>
+            </Button>
           )}
         </div>
       </div>

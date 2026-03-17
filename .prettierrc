@@ -1,6 +1,7 @@
 {
   "singleQuote": true,
   "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["cva", "cn"],
   "arrowParens": "always",
   "trailingComma": "all",
   "printWidth": 120,

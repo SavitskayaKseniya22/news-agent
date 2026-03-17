@@ -1,11 +1,13 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-
+import Button from '@/shared/ui/Button';
+import SVGWrapper from '@/shared/ui/SVGWrapper';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 export default function RefetchButton({ onClick, istItDisabled }: { onClick: () => void; istItDisabled: boolean }) {
   return (
-    <button type="button" className="btn btn_orange" onClick={onClick} disabled={istItDisabled}>
-      <ArrowPathIcon />
-    </button>
+    <Button type="button" onClick={onClick} disabled={istItDisabled} view="secondary">
+      <SVGWrapper view={'stroke'}>
+        <ArrowPathIcon />
+      </SVGWrapper>
+    </Button>
   );
 }
