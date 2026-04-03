@@ -3,7 +3,7 @@
 import { usePathname } from 'next/dist/client/components/navigation';
 import Link from 'next/link';
 import Logo from '@/app/lib/logo/Logo';
-import Button from '@/shared/ui/Button';
+import Button from '@/shared/ui/Button/Button';
 
 export default function Header() {
   const pathname = usePathname();

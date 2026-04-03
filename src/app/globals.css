@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import 'tailwindcss';
 
 @theme {
+  --font-display: 'Mulish', sans-serif;
+  --font-title: 'Geologica', sans-serif;
+
   --color-palette-accent: #f36326;
   --color-palette-accent-hover: #e2581d;
 
@@ -48,6 +52,19 @@
   --text-content--line-height: 150%;
   --text-content--letter-spacing: 0.005em;
   --text-content--font-weight: 300;
+}
+
+:root {
+  @apply font-display;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title;
 }
 
 /*

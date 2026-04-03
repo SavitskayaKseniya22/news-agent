@@ -1,4 +1,4 @@
-import Button from '@/shared/ui/Button';
+import Button from '@/shared/ui/Button/Button';
 import SVGWrapper from '@/shared/ui/SVGWrapper';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
