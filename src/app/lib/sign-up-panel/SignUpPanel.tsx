@@ -1,7 +1,9 @@
+import Button from '@/shared/ui/Button/Button';
+
 export default function SignUpPanel() {
   return (
     <div
-      className="container flex flex-col items-center gap-8 bg-palette-blue-dark p-4 text-white sm:p-8 lg:p-12"
+      className="bg-palette-blue-dark container flex flex-col items-center gap-8 p-4 text-white sm:p-8 lg:p-12"
       id="subscription"
     >
       <h1 className="text-h1">Sign Up for Our Newsletters</h1>
@@ -14,12 +16,12 @@ export default function SignUpPanel() {
         <input
           type="text"
           placeholder="Input your email address here"
-          className="min-h-10 flex-grow rounded-lg px-6 py-2 text-h6-semibold font-bold tracking-wider"
+          className="text-h6-semibold min-h-10 grow rounded-lg px-6 py-2 font-bold tracking-wider"
         />
 
-        <button type="button" className="btn btn_orange">
+        <Button type="button" view="primary">
           Subscribe Now
-        </button>
+        </Button>
       </div>
     </div>
   );

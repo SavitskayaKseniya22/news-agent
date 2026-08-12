@@ -1,26 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import 'tailwindcss';
 
-button {
-  @apply disabled:opacity-20;
+@theme {
+  --font-display: 'Mulish', sans-serif;
+  --font-title: 'Geologica', sans-serif;
+
+  --color-palette-accent: #f36326;
+  --color-palette-accent-hover: #e2581d;
+
+  --color-palette-gray-dark: #909090;
+  --color-palette-gray-light: #c3c3c3;
+
+  --color-palette-blue-dark: #109be9;
+  --color-palette-blue-light: #cfecfc;
+
+  --height-128: 32rem;
+
+  --text-h1: 3.875rem;
+  --text-h1--line-height: 120%;
+  --text-h1--letter-spacing: 0.003em;
+  --text-h1--font-weight: 700;
+  --text-h2: 3rem;
+  --text-h2--line-height: 120%;
+  --text-h2--letter-spacing: 0.005em;
+  --text-h2--font-weight: 500;
+  --text-h3: 2.5rem;
+  --text-h3--line-height: 120%;
+  --text-h3--letter-spacing: 0.005em;
+  --text-h3--font-weight: 500;
+  --text-h4: 2rem;
+  --text-h4--line-height: 120%;
+  --text-h4--letter-spacing: 0.005em;
+  --text-h4--font-weight: 700;
+  --text-h5: 1.5rem;
+  --text-h5--line-height: 120%;
+  --text-h5--letter-spacing: 0.005em;
+  --text-h5--font-weight: 700;
+  --text-h6-bold: 1rem;
+  --text-h6-bold--line-height: 120%;
+  --text-h6-bold--letter-spacing: 0.005em;
+  --text-h6-bold--font-weight: 700;
+  --text-h6-semibold: 1rem;
+  --text-h6-semibold--line-height: 120%;
+  --text-h6-semibold--letter-spacing: 0.005em;
+  --text-h6-semibold--font-weight: 500;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 120%;
+  --text-caption--letter-spacing: 0.008em;
+  --text-caption--font-weight: 500;
+  --text-content: 1rem;
+  --text-content--line-height: 150%;
+  --text-content--letter-spacing: 0.005em;
+  --text-content--font-weight: 300;
 }
 
-.btn {
-  @apply flex min-h-10 items-center justify-center rounded-lg px-4 py-1 text-base font-bold tracking-wider disabled:opacity-20 sm:px-6 sm:py-2;
+:root {
+  @apply font-display;
 }
 
-.btn svg {
-  @apply h-5 w-5 sm:h-6 sm:w-6;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title;
 }
 
-.btn_orange {
-  @apply bg-palette-orange text-white;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
 .comment {
   pre {
-    @apply m-4 whitespace-pre-wrap rounded-lg bg-palette-gray-light p-4;
+    @apply bg-palette-gray-light m-4 rounded-lg p-4 whitespace-pre-wrap;
   }
   a {
     @apply text-palette-blue-dark;
