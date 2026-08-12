@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ContentDetailesType, FullStoryType, ParsedContentDetailesType, PexelsResponseType } from '../types';
+import { ContentDetailesType, FullStoryType, ParsedContentDetailesType, PexelsResponseType } from '../app/types';
 
-import { refineStoryResponse } from '../utils';
+import { refineStoryResponse } from '../app/utils';
 import { apiKey } from './pexelsApi';
 
 export const queryApi = createApi({

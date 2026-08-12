@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { ContentDetailesType, ParsedContentDetailesType, UserType } from '../types';
-import { refineStoryResponse } from '../utils';
+import { ContentDetailesType, ParsedContentDetailesType, UserType } from '../app/types';
+import { refineStoryResponse } from '../app/utils';
 
 export const hackerNewsApi = createApi({
   reducerPath: 'hackerNewsApi',

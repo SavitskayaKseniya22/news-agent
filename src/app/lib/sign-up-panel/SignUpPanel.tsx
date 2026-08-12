@@ -1,4 +1,4 @@
-import Button from '@/shared/ui/Button/Button';
+import Button from '@/components/Button/Button';
 
 export default function SignUpPanel() {
   return (

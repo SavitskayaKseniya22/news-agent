@@ -2,7 +2,7 @@
 
 import PageContent from '@/app/lib/page-content/PageContent';
 import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
-import { useGetAskStoriesQuery } from '@/app/store/hackerNewsApi';
+import { useGetAskStoriesQuery } from '@/api/hackerNewsApi';
 import { ContentViewType, ListingType } from '@/app/types';
 
 export default function Page() {

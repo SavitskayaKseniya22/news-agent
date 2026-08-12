@@ -4,7 +4,7 @@ import SocialsInfo from '@/app/lib/socials-info/SocialsInfo';
 import { StoryPreviewType } from '@/app/types';
 import { useParams } from 'next/navigation';
 import parse from 'html-react-parser';
-import { useGetStoryQuery } from '@/app/store/hackerNewsApi';
+import { useGetStoryQuery } from '@/api/hackerNewsApi';
 import Link from 'next/dist/client/link';
 import { Comments } from '@/app/lib/comment/Comment';
 
@@ -33,7 +33,7 @@ export default function Page() {
           </div>
           <h1 className="text-h3">{title}</h1>
 
-          {text.length ? <p className="indent-4 text-content">{parse(text)}</p> : ''}
+          {text.length ? <p className="text-content indent-4">{parse(text)}</p> : ''}
 
           <div className="flex flex-wrap justify-between gap-4">
             <SocialsInfo

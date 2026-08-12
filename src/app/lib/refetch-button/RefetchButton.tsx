@@ -1,5 +1,5 @@
-import Button from '@/shared/ui/Button/Button';
-import SVGWrapper from '@/shared/ui/SVGWrapper';
+import Button from '@/components/Button/Button';
+import SVGWrapper from '@/components/SVGWrapper/SVGWrapper';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 export default function RefetchButton({ onClick, istItDisabled }: { onClick: () => void; istItDisabled: boolean }) {

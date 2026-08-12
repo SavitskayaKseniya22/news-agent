@@ -1,4 +1,4 @@
-import { useGetQuotesQuery } from '@/app/store/quotesApi';
+import { useGetQuotesQuery } from '@/api/quotesApi';
 import { QuoteResponseType } from '@/app/types';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 export default function Quote({ data }: { data: { img: string } & QuoteResponseType }) {
   return (
     <div className="flex items-center gap-8 p-2">
-      <div className="flex h-18 w-16 rotate-45 items-center justify-center rounded-full bg-palette-blue-dark">
+      <div className="bg-palette-blue-dark flex h-18 w-16 rotate-45 items-center justify-center rounded-full">
         <Image
           src={data.img}
           alt={data.author}
@@ -16,7 +16,7 @@ export default function Quote({ data }: { data: { img: string } & QuoteResponseT
         />
       </div>
 
-      <dl className="relative flex flex-col gap-2 border border-palette-gray-dark bg-white p-4 before:absolute before:-left-[20px] before:top-[17px] before:z-10 before:h-0 before:w-0 before:content-normal before:border-l-20 before:border-t-20 before:border-transparent before:border-t-white after:absolute after:-left-[22px] after:top-4 after:h-0 after:w-0 after:content-normal after:border-l-22 after:border-t-22 after:border-transparent after:border-t-palette-gray-dark">
+      <dl className="border-palette-gray-dark after:border-t-palette-gray-dark relative flex flex-col gap-2 border bg-white p-4 before:absolute before:top-[17px] before:-left-[20px] before:z-10 before:h-0 before:w-0 before:content-normal before:border-t-20 before:border-l-20 before:border-transparent before:border-t-white after:absolute after:top-4 after:-left-[22px] after:h-0 after:w-0 after:content-normal after:border-t-22 after:border-l-22 after:border-transparent">
         <dt className="text-h6-bold">{data.content}</dt>
         <dd className="text-caption">{data.author}</dd>
       </dl>

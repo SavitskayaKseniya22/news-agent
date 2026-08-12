@@ -1,6 +1,6 @@
 import { ListingType, ParsedContentDetailesType, StoryPreviewType } from '@/app/types';
 import Link from 'next/dist/client/link';
-import { useGetAllStoriesQuery } from '@/app/store/queryApi';
+import { useGetAllStoriesQuery } from '@/api/queryApi';
 import SocialsInfo from '../socials-info/SocialsInfo';
 import ListingPlaceholder from './ListingPlaceholder';
 
@@ -17,9 +17,9 @@ export default function Listing({ type, data }: { type: ListingType; data: Parse
         target={type === ListingType.JOB ? '_blank' : '_self'}
         href={type === ListingType.JOB ? url : `/story/${id}`}
       >
-        <h6 className="flex grow items-center justify-center text-h6-semibold">{title}</h6>
-        <div className="flex w-full flex-wrap items-center justify-between gap-2 text-palette-gray-light">
-          <span className="order-2 text-caption sm:order-1">{by}</span>
+        <h6 className="text-h6-semibold flex grow items-center justify-center">{title}</h6>
+        <div className="text-palette-gray-light flex w-full flex-wrap items-center justify-between gap-2">
+          <span className="text-caption order-2 sm:order-1">{by}</span>
           {type === ListingType.JOB ? (
             <div className="order-1 w-full sm:order-2 sm:w-auto">{cutUrl}</div>
           ) : (
@@ -31,7 +31,7 @@ export default function Listing({ type, data }: { type: ListingType; data: Parse
             />
           )}
 
-          <span className="order-3 text-caption">{time}</span>
+          <span className="text-caption order-3">{time}</span>
         </div>
       </Link>
     </li>

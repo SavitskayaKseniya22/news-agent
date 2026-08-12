@@ -1,4 +1,4 @@
-import { useGetAllStoriesQuery } from '@/app/store/queryApi';
+import { useGetAllStoriesQuery } from '@/api/queryApi';
 import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import parse from 'html-react-parser';
@@ -16,7 +16,7 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
         <span className="text-h6-semibold">{time}</span>
       </div>
 
-      <p className="indent-4 text-content">{parse(text)}</p>
+      <p className="text-content indent-4">{parse(text)}</p>
 
       <button
         className="flex items-center gap-2 self-end"
@@ -26,7 +26,7 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
         }}
         disabled={!kids.length}
       >
-        <ChatBubbleLeftIcon className="h-4 w-4 text-palette-blue-dark" />
+        <ChatBubbleLeftIcon className="text-palette-blue-dark h-4 w-4" />
         <h6 className="text-caption">{kids.length} comments</h6>
       </button>
       {isItOpen && <Comments kids={data.kids} />}

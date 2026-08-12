@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { QuoteResponseType } from '../types';
+import { QuoteResponseType } from '../app/types';
 
 export const quotesApi = createApi({
   reducerPath: 'quotesApi',

@@ -4,7 +4,7 @@
 
 import PageContent from '@/app/lib/page-content/PageContent';
 import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
-import { useGetBestStoriesQuery } from '@/app/store/hackerNewsApi';
+import { useGetBestStoriesQuery } from '@/api/hackerNewsApi';
 import { ContentViewType } from '@/app/types';
 
 export default function Page() {

@@ -1,5 +1,5 @@
-import Button from '@/shared/ui/Button/Button';
-import SVGWrapper from '@/shared/ui/SVGWrapper';
+import Button from '@/components/Button/Button';
+import SVGWrapper from '@/components/SVGWrapper/SVGWrapper';
 import {
   ChevronLeftIcon,
   ChevronDoubleLeftIcon,

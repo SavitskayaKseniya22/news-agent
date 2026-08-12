@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import 'tailwindcss';
 
-@theme {
-  --font-display: 'Mulish', sans-serif;
-  --font-title: 'Geologica', sans-serif;
+@theme inline {
+  --font-display: var(--font-mulish);
+  --font-title: var(--font-geologica);
 
   --color-palette-accent: #f36326;
   --color-palette-accent-hover: #e2581d;

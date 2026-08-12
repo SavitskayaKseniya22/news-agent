@@ -2,7 +2,7 @@
 
 import PageContent from '@/app/lib/page-content/PageContent';
 import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
-import { useGetJobStoriesQuery } from '@/app/store/hackerNewsApi';
+import { useGetJobStoriesQuery } from '@/api/hackerNewsApi';
 import { ContentViewType, ListingType } from '@/app/types';
 
 export default function Page() {

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import StoryPreview from '@/app/lib/story-preview/StoryPreview';
-import { useGetFullStoryQuery, useGetAllFullStoriesQuery } from '@/app/store/queryApi';
+import { useGetFullStoryQuery, useGetAllFullStoriesQuery } from '@/api/queryApi';
 
 import { StoryPreviewType } from '@/app/types';
 import StoryPlaceholder from '../story-placeholder/StoryPlaceholder';

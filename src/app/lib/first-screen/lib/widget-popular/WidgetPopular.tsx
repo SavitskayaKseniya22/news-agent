@@ -1,5 +1,5 @@
 import { StoryPreviewType } from '@/app/types';
-import { useGetTopStoriesQuery } from '@/app/store/hackerNewsApi';
+import { useGetTopStoriesQuery } from '@/api/hackerNewsApi';
 import { Stories } from '../../../story/Story';
 
 export default function WidgetPopular() {

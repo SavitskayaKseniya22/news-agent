@@ -95,13 +95,13 @@ export enum StoryPreviewType {
 }
 
 export enum ContentViewType {
-  'STORY' = 'story',
-  'LISTING' = 'listing',
+  STORY = 'story',
+  LISTING = 'listing',
 }
 
 export enum ListingType {
-  'JOB' = 'job',
-  'QUESTION' = 'question',
+  JOB = 'job',
+  QUESTION = 'question',
 }
 
 export interface QuoteResponseType {
