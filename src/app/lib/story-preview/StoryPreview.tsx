@@ -2,6 +2,7 @@ import { StoryPreviewType, FullStoryType } from '@/app/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import SocialsInfo from '../socials-info/SocialsInfo';
+import { CustomButtonLink } from '@/components/elements/Button/Button';
 
 export default function StoryPreview({ type, data }: { type: StoryPreviewType; data: FullStoryType }) {
   const { story, photo } = data;
@@ -52,9 +53,7 @@ export default function StoryPreview({ type, data }: { type: StoryPreviewType; d
         <div className="flex items-center justify-between">
           <SocialsInfo score={score} descendants={descendants} type={type} />
 
-          <Link className="btn btn_orange" href={`/story/${id}`}>
-            Follow
-          </Link>
+          <CustomButtonLink href={`/story/${id}`}>Follow</CustomButtonLink>
         </div>
       </div>
     );
