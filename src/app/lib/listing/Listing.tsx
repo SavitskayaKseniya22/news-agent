@@ -17,7 +17,7 @@ export default function Listing({ type, data }: { type: ListingType; data: Parse
         target={type === ListingType.JOB ? '_blank' : '_self'}
         href={type === ListingType.JOB ? url : `/story/${id}`}
       >
-        <h6 className="text-h6-semibold flex grow items-center justify-center">{title}</h6>
+        <h6 className="text-h6 flex grow items-center justify-center font-semibold">{title}</h6>
         <div className="text-palette-gray-light flex w-full flex-wrap items-center justify-between gap-2">
           <span className="text-caption order-2 sm:order-1">{by}</span>
           {type === ListingType.JOB ? (

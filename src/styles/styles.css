@@ -7,8 +7,10 @@
   --color-palette-accent: #f36326;
   --color-palette-accent-hover: #e2581d;
 
-  --color-palette-gray-dark: #909090;
-  --color-palette-gray-light: #c3c3c3;
+  --color-palette-black-dark: #292929;
+
+  --color-palette-gray-dark: #535353;
+  --color-palette-gray-light: #d4d4d4;
 
   --color-palette-blue-dark: #109be9;
   --color-palette-blue-light: #cfecfc;
@@ -19,42 +21,44 @@
   --text-h1--line-height: 120%;
   --text-h1--letter-spacing: 0.003em;
   --text-h1--font-weight: 700;
+
   --text-h2: 3rem;
   --text-h2--line-height: 120%;
   --text-h2--letter-spacing: 0.005em;
   --text-h2--font-weight: 500;
+
   --text-h3: 2.5rem;
   --text-h3--line-height: 120%;
   --text-h3--letter-spacing: 0.005em;
   --text-h3--font-weight: 500;
+
   --text-h4: 2rem;
   --text-h4--line-height: 120%;
   --text-h4--letter-spacing: 0.005em;
   --text-h4--font-weight: 700;
+
   --text-h5: 1.5rem;
   --text-h5--line-height: 120%;
   --text-h5--letter-spacing: 0.005em;
   --text-h5--font-weight: 700;
-  --text-h6-bold: 1rem;
-  --text-h6-bold--line-height: 120%;
-  --text-h6-bold--letter-spacing: 0.005em;
-  --text-h6-bold--font-weight: 700;
-  --text-h6-semibold: 1rem;
-  --text-h6-semibold--line-height: 120%;
-  --text-h6-semibold--letter-spacing: 0.005em;
-  --text-h6-semibold--font-weight: 500;
+
+  --text-h6: 1rem;
+  --text-h6--line-height: 120%;
+  --text-h6--letter-spacing: 0.005em;
+
+  --text-content: 1rem;
+  --text-content--line-height: 150%;
+  --text-content--letter-spacing: 0.005em;
+
   --text-caption: 0.75rem;
   --text-caption--line-height: 120%;
   --text-caption--letter-spacing: 0.008em;
   --text-caption--font-weight: 500;
-  --text-content: 1rem;
-  --text-content--line-height: 150%;
-  --text-content--letter-spacing: 0.005em;
-  --text-content--font-weight: 300;
 }
 
 :root {
   @apply font-display;
+  @apply text-palette-black-dark;
 }
 
 h1,

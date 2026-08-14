@@ -1,4 +1,4 @@
-import Button from '@/components/Button/Button';
+import Button from '@/components/elements/Button/Button';
 
 export default function SignUpPanel() {
   return (
@@ -16,7 +16,7 @@ export default function SignUpPanel() {
         <input
           type="text"
           placeholder="Input your email address here"
-          className="text-h6-semibold min-h-10 grow rounded-lg px-6 py-2 font-bold tracking-wider"
+          className="text-h6 min-h-10 grow rounded-lg px-6 py-2 font-bold font-semibold tracking-wider"
         />
 
         <Button type="button" view="primary">

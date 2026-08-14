@@ -12,8 +12,8 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
   return (
     <li className="comment container flex flex-col gap-4 rounded-lg border-2 bg-white p-2 sm:p-4">
       <div className="flex flex-wrap justify-between gap-2">
-        <span className="text-h6-bold">{by}</span>
-        <span className="text-h6-semibold">{time}</span>
+        <span className="text-h6 font-bold">{by}</span>
+        <span className="text-h6 font-semibold">{time}</span>
       </div>
 
       <p className="text-content indent-4">{parse(text)}</p>

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Geologica, Mulish } from 'next/font/google';
 import '../styles/styles.css';
-import Footer from './lib/footer/Footer';
+import Footer from '../components/blocks/footer/Footer';
 import Providers from '../api/provider';
+import Header from '../components/blocks/header/Header';
 
 const mulish = Mulish({
   subsets: ['latin', 'cyrillic'],
@@ -32,7 +33,10 @@ export default function RootLayout({
       <body
         className={`${mulish.variable} ${geologica.variable} bg-pattern flex min-h-screen flex-col items-center justify-between gap-4`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
         <Footer />
       </body>
     </html>

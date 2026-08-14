@@ -28,8 +28,8 @@ export default function Page() {
       <main className="container flex grow flex-col gap-12 p-4">
         <div className="flex flex-col gap-12">
           <div className="flex justify-between gap-4">
-            <span className="text-h6-bold">{by}</span>
-            <span className="text-h6-semibold">{time}</span>
+            <span className="text-h6 font-bold">{by}</span>
+            <span className="text-h6 font-semibold">{time}</span>
           </div>
           <h1 className="text-h3">{title}</h1>
 

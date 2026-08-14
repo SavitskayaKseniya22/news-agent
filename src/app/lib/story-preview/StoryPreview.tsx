@@ -26,10 +26,10 @@ export default function StoryPreview({ type, data }: { type: StoryPreviewType; d
           </div>
 
           <div className="flex grow flex-col justify-center gap-4">
-            <h6 className="text-h6-bold">{title}</h6>
+            <h6 className="text-h6 font-bold">{title}</h6>
             <div className="flex justify-between gap-4">
-              <span className="text-caption text-palette-blue-light">{storyType}</span>
-              <span className="text-caption">{time}</span>
+              <h6 className="text-caption text-palette-blue-dark">{storyType}</h6>
+              <h6 className="text-caption">{time}</h6>
             </div>
           </div>
         </Link>
@@ -40,14 +40,14 @@ export default function StoryPreview({ type, data }: { type: StoryPreviewType; d
     return (
       <div className="flex h-full flex-col justify-between gap-4">
         <div className="flex justify-between">
-          <h6 className="text-h6-bold text-white">{time}</h6>
+          <h5 className="text-h5-bold">{time}</h5>
           <div className="flex flex-col gap-4">
-            <h6 className="text-h6-bold text-white">{by}</h6>
-            <h6 className="text-caption text-palette-blue-light">{storyType}</h6>
+            <h5 className="text-h5-bold">{by}</h5>
+            <h5 className="text-caption text-palette-blue-dark">{storyType}</h5>
           </div>
         </div>
 
-        <h1 className="text-h1 text-white">{title}</h1>
+        <h1 className="text-h1">{title}</h1>
 
         <div className="flex items-center justify-between">
           <SocialsInfo score={score} descendants={descendants} type={type} />
@@ -73,12 +73,12 @@ export default function StoryPreview({ type, data }: { type: StoryPreviewType; d
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP0+Q8AAZ0BTSKFuNAAAAAASUVORK5CYII="
           />
           <div className="flex flex-col items-center justify-center gap-4 p-2 text-center">
-            <h6 className="flex grow items-center justify-center text-h6-semibold">{title}</h6>
-            <div className="flex w-full items-center justify-between gap-4 text-palette-gray-light">
-              <span className="text-caption">{by}</span>
-              <span className="text-caption">{time}</span>
+            <h6 className="text-h6 flex grow items-center justify-center font-semibold">{title}</h6>
+            <div className="text-palette-gray-light flex w-full items-center justify-between gap-4">
+              <h6 className="text-caption">{by}</h6>
+              <h6 className="text-caption">{time}</h6>
             </div>
-            <div className="absolute right-0 top-0 bg-white p-2">
+            <div className="absolute top-0 right-0 bg-white p-2">
               <SocialsInfo score={score} descendants={descendants} type={type} />
             </div>
           </div>
