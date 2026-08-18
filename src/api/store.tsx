@@ -1,23 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { pexelsApi } from './pexelsApi';
-import { hackerNewsApi } from './hackerNewsApi';
-import { queryApi } from './queryApi';
-import { quotesApi } from './quotesApi';
+import { baseApi } from './baseApi';
 
 const store = configureStore({
   reducer: {
-    [pexelsApi.reducerPath]: pexelsApi.reducer,
-    [hackerNewsApi.reducerPath]: hackerNewsApi.reducer,
-    [queryApi.reducerPath]: queryApi.reducer,
-    [quotesApi.reducerPath]: quotesApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
 
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(pexelsApi.middleware)
-      .concat(hackerNewsApi.middleware)
-      .concat(queryApi.middleware)
-      .concat(quotesApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
 });
 
 export default store;

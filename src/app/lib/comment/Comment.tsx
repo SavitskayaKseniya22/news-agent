@@ -1,4 +1,3 @@
-import { useGetAllStoriesQuery } from '@/api/queryApi';
 import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import parse from 'html-react-parser';

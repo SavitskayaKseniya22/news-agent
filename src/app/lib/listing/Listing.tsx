@@ -1,7 +1,7 @@
 import { ListingType, ParsedContentDetailesType, StoryPreviewType } from '@/app/types';
 import Link from 'next/dist/client/link';
 import { useGetAllStoriesQuery } from '@/api/queryApi';
-import SocialsInfo from '../socials-info/SocialsInfo';
+import SocialsInfo from '../../../components/blocks/socials-info/SocialsInfo';
 import ListingPlaceholder from './ListingPlaceholder';
 
 export default function Listing({ type, data }: { type: ListingType; data: ParsedContentDetailesType }) {

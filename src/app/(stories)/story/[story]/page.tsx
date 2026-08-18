@@ -1,6 +1,6 @@
 'use client';
 
-import SocialsInfo from '@/app/lib/socials-info/SocialsInfo';
+import SocialsInfo from '@/components/blocks/socials-info/SocialsInfo';
 import { StoryPreviewType } from '@/app/types';
 import { useParams } from 'next/navigation';
 import parse from 'html-react-parser';

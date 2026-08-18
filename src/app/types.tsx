@@ -1,3 +1,5 @@
+import { PexelsResponseType } from '@/api/pexelsApi';
+
 export enum ContentType {
   JOB = 'job',
   STORY = 'story',
@@ -40,37 +42,6 @@ export interface ParsedContentDetailesType {
   text: string;
   kids: number[];
   url: string;
-}
-
-export interface PexelsResponseType {
-  total_results: number;
-  page: number;
-  per_page: number;
-  photos: [
-    {
-      id: number;
-      width: number;
-      height: number;
-      url: string;
-      photographer: 'Lukas Rodriguez';
-      photographer_url: 'https://www.pexels.com/@lukas-rodriguez-1845331';
-      photographer_id: number;
-      avg_color: '#374824';
-      src: {
-        original: string;
-        large2x: string;
-        large: string;
-        medium: string;
-        small: string;
-        portrait: string;
-        landscape: string;
-        tiny: string;
-      };
-      liked: boolean;
-      alt: string;
-    },
-  ];
-  next_page: string;
 }
 
 export type FullStoryType = {

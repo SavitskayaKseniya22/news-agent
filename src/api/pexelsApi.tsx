@@ -1,22 +1,60 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { PexelsResponseType } from '../app/types';
+import z from 'zod';
+import { baseApi } from './baseApi';
 
-export const apiKey = 'gGtWZcXFsPTCQsNtTebitSFib967u4H2g9dAs6CEU9Do1HJTdxyZ0YDC';
+type GetPicturesParams = {
+  query: string;
+  per_page?: number;
+  page?: number;
+  orientation?: 'landscape' | 'portrait' | 'square';
+  size?: 'large' | 'medium' | 'small';
+  locale?: string;
+};
 
-export const pexelsApi = createApi({
-  reducerPath: 'pexelsApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.pexels.com/v1/',
-  }),
-  endpoints: (builder) => ({
-    getPhotos: builder.query<PexelsResponseType, { query: string }>({
-      query: ({ query }) => ({
-        url: `/search?query=${query}&per_page=3`,
-        method: 'GET',
-        headers: { Authorization: `${apiKey}` },
+export const PexelsResponseSchema = z.object({
+  total_results: z.number(),
+  page: z.number(),
+  per_page: z.number(),
+  photos: z.array(
+    z.object({
+      id: z.number(),
+      width: z.number(),
+      height: z.number(),
+      url: z.string(),
+      photographer: z.string(),
+      photographer_url: z.string(),
+      photographer_id: z.number(),
+      avg_color: z.string(),
+      src: z.object({
+        original: z.string(),
+        large2x: z.string(),
+        large: z.string(),
+        medium: z.string(),
+        small: z.string(),
+        portrait: z.string(),
+        landscape: z.string(),
+        tiny: z.string(),
       }),
+      liked: z.boolean(),
+      alt: z.string(),
+    }),
+  ),
+  next_page: z.string().optional(),
+});
+
+export type PexelsResponseType = z.infer<typeof PexelsResponseSchema>;
+
+export const pexelsApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    getPictures: builder.query<PexelsResponseType, GetPicturesParams>({
+      query: (params) => ({
+        url: '/pictures',
+        params,
+      }),
+      transformResponse: (response: unknown) => {
+        return PexelsResponseSchema.parse(response);
+      },
     }),
   }),
 });
 
-export const { useGetPhotosQuery } = pexelsApi;
+export const { useGetPicturesQuery } = pexelsApi;
