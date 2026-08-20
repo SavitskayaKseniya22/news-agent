@@ -1,3 +1,5 @@
+'use client';
+
 import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
 import Pagination from '@/components/blocks/pagination/Pagination';
 import { StoryPreviewType } from '@/app/types';
@@ -31,10 +33,11 @@ export default function Stories({ itemsOnPage, pageType }: { itemsOnPage: number
       )}
 
       <Pagination
-        totalItems={data?.pagination.totalItems}
+        totalItems={data?.pagination.totalItems ?? 0}
         currentPage={currentPage}
         onPageChange={setCurrentPage}
         isDisabled={isFetching}
+        totalPages={data?.pagination.totalPages ?? 1}
       />
     </main>
   );

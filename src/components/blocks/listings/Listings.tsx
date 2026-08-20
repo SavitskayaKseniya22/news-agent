@@ -1,8 +1,9 @@
+'use client';
+
 import { ParsedContentDetailesType, StoryPreviewType } from '@/app/types';
 import Link from 'next/dist/client/link';
 import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
 import SocialsInfo from '../socials-info/SocialsInfo';
-import ListingPlaceholder from '../listing-placeholder/ListingPlaceholder';
 import { useState } from 'react';
 import Pagination from '../pagination/Pagination';
 import Spinner from '@/components/elements/Spinner/Spinner';
@@ -68,10 +69,11 @@ export default function Listings({ itemsOnPage, pageType }: { itemsOnPage: numbe
         </ul>
       )}
       <Pagination
-        totalItems={data?.pagination.totalItems}
+        totalItems={data?.pagination.totalItems ?? 0}
         currentPage={currentPage}
         onPageChange={setCurrentPage}
         isDisabled={isFetching}
+        totalPages={data?.pagination.totalPages ?? 1}
       />
     </main>
   );

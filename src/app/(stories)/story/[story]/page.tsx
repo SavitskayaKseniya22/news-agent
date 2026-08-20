@@ -1,64 +1,41 @@
 'use client';
 
-import SocialsInfo from '@/components/blocks/socials-info/SocialsInfo';
 import { StoryPreviewType } from '@/app/types';
 import { useParams } from 'next/navigation';
-import parse from 'html-react-parser';
-import { useGetStoryQuery } from '@/api/hackerNewsApi';
-import Link from 'next/dist/client/link';
-import { Comments } from '@/app/lib/comment/Comment';
-
-import RefetchButton from '@/app/lib/refetch-button/RefetchButton';
+import { Comments } from '@/components/blocks/comment/Comment';
+import { useGetStoryQuery } from '@/api/hackerNews';
+import Story from '@/components/blocks/story/Story';
+import Spinner from '@/components/elements/Spinner/Spinner';
 
 export default function Page() {
   const params = useParams();
 
-  const { data, isFetching, isError, refetch, isLoading, currentData } = useGetStoryQuery(
+  const { data, isFetching, isError, refetch } = useGetStoryQuery(
     { id: params.story as unknown as number },
     { skip: !params.story },
   );
 
   if (isError) return <div>An error has occurred!</div>;
 
-  if (isLoading) return <div>Loading</div>;
+  if (isFetching) return <Spinner />;
 
   if (data) {
-    const { title, time, score, descendants, by, text, url } = data;
     return (
       <main className="container flex grow flex-col gap-12 p-4">
-        <div className="flex flex-col gap-12">
-          <div className="flex justify-between gap-4">
-            <span className="text-h6 font-bold">{by}</span>
-            <span className="text-h6 font-semibold">{time}</span>
-          </div>
-          <h1 className="text-h3">{title}</h1>
-
-          {text.length ? <p className="text-content indent-4">{parse(text)}</p> : ''}
-
-          <div className="flex flex-wrap justify-between gap-4">
-            <SocialsInfo
-              score={currentData?.score || score}
-              descendants={currentData?.descendants || descendants}
-              type={StoryPreviewType.GIGANTIC}
-            />
-            <div className="flex gap-4">
-              <RefetchButton
-                istItDisabled={!data}
-                onClick={() => {
-                  refetch();
-                }}
-              />
-
-              <Link className="btn btn_orange self-end" href={`${url}`} target="_blank">
-                Source
-              </Link>
-            </div>
-          </div>
-        </div>
-        {isFetching && <div>Loading</div>}
-        {currentData && !isFetching && <Comments kids={currentData.kids} />}
+        <Story
+          type={StoryPreviewType.BIG}
+          data={{
+            story: data,
+            photo: null,
+          }}
+          onRefetch={() => {
+            refetch();
+          }}
+        />
+        <Comments kids={data.kids} />
       </main>
     );
   }
+
   return null;
 }

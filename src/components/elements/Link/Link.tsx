@@ -6,15 +6,16 @@ const variants = cva(
   [
     'text-inherit',
     'transition-colors duration-150',
-    'disabled:cursor-not-allowed disabled:opacity-20',
-    'aria-disabled:cursor-not-allowed aria-disabled:opacity-20',
+    'disabled:cursor-default disabled:opacity-20',
+    'aria-disabled:cursor-default aria-disabled:opacity-20',
     'aria-disabled:pointer-events-none',
+    'cursor-pointer',
   ],
   {
     variants: {
       view: {
-        primary: 'hover:text-palette-blue-dark',
-        secondary: 'hover:text-palette-accent-hover',
+        primary: 'enabled:hover:text-palette-blue-dark',
+        secondary: 'enabled:hover:text-palette-accent-hover',
       },
     },
     defaultVariants: {

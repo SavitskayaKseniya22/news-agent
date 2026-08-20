@@ -2,9 +2,19 @@ import { StoryPreviewType, FullStoryType } from '@/app/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import SocialsInfo from '../socials-info/SocialsInfo';
-import { CustomLink } from '@/components/elements/Link/Link';
+import { CustomAnchorLink, CustomLink } from '@/components/elements/Link/Link';
+import parse from 'html-react-parser';
+import RefetchButton from '@/components/elements/refetch-button/RefetchButton';
 
-export default function Story({ type, data }: { type: StoryPreviewType; data: FullStoryType }) {
+export default function Story({
+  type,
+  data,
+  onRefetch,
+}: {
+  type: StoryPreviewType;
+  data: FullStoryType;
+  onRefetch?: () => void;
+}) {
   const { story, photo } = data;
   const { title, time, score, descendants, by, type: storyType, id } = story;
 
@@ -16,35 +26,6 @@ export default function Story({ type, data }: { type: StoryPreviewType; data: Fu
     month: 'long',
     day: 'numeric',
   });
-  if (type === StoryPreviewType.GIGANTIC) {
-    return (
-      <div className="flex h-112 gap-8 overflow-hidden">
-        <div className="relative w-[30%] shrink-0">
-          <Image
-            fill
-            src={imageSrc}
-            alt={imageAlt}
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP0+Q8AAZ0BTSKFuNAAAAAASUVORK5CYII="
-            className="object-cover"
-          />
-        </div>
-
-        <div className="flex w-[70%] min-w-0 flex-col gap-2">
-          <p className="text-caption self-end">{detailedTime}</p>
-          <div className="flex min-h-0 grow flex-col justify-center gap-2">
-            <CustomLink href={`/story/${id}`}>
-              <h1 className="text-h1 wrap-break-word">{title}</h1>
-            </CustomLink>
-            <p className="text-content">
-              by <span className="font-bold italic">{by}</span>
-            </p>
-          </div>
-          <SocialsInfo score={score} descendants={descendants} type={type} classList="self-end" />
-        </div>
-      </div>
-    );
-  }
   if (type === StoryPreviewType.SMALL) {
     return (
       <li className="shrink-0 grow-0">
@@ -52,6 +33,7 @@ export default function Story({ type, data }: { type: StoryPreviewType; data: Fu
           <div className="relative w-[30%] shrink-0">
             <Image
               fill
+              sizes="20vw"
               src={imageSrc}
               alt={imageAlt}
               placeholder="blur"
@@ -80,6 +62,7 @@ export default function Story({ type, data }: { type: StoryPreviewType; data: Fu
           <div className="relative h-14 w-full grow">
             <Image
               fill
+              sizes="20vw"
               src={imageSrc}
               alt={imageAlt}
               placeholder="blur"
@@ -97,6 +80,62 @@ export default function Story({ type, data }: { type: StoryPreviewType; data: Fu
           </div>
         </Link>
       </li>
+    );
+  }
+  if (type === StoryPreviewType.BIG) {
+    const { title, score, descendants, by, text, url } = data.story;
+
+    return (
+      <div className="flex flex-col gap-4">
+        <p className="text-caption self-end">{detailedTime}</p>
+        <CustomAnchorLink href={url} target="_blank">
+          <h1 className="text-h1 wrap-break-word">{title}</h1>
+        </CustomAnchorLink>
+        <p className="text-content">
+          by <span className="font-bold italic">{by}</span>
+        </p>
+        {text.length > 0 && <div className="text-content indent-2">{parse(text)}</div>}
+
+        <div className="flex flex-wrap justify-between gap-4">
+          <RefetchButton
+            istItDisabled={!data}
+            onClick={() => {
+              onRefetch?.();
+            }}
+          />
+          <SocialsInfo score={score} descendants={descendants} type={StoryPreviewType.GIGANTIC} />
+        </div>
+      </div>
+    );
+  }
+  if (type === StoryPreviewType.GIGANTIC) {
+    return (
+      <div className="flex h-112 gap-8 overflow-hidden">
+        <div className="relative w-[30%] shrink-0">
+          <Image
+            fill
+            sizes="30vw"
+            src={imageSrc}
+            alt={imageAlt}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP0+Q8AAZ0BTSKFuNAAAAAASUVORK5CYII="
+            className="object-cover"
+          />
+        </div>
+
+        <div className="flex w-[70%] min-w-0 flex-col gap-2">
+          <p className="text-caption self-end">{detailedTime}</p>
+          <div className="flex min-h-0 grow flex-col justify-center gap-2">
+            <CustomLink href={`/story/${id}`}>
+              <h1 className="text-h1 wrap-break-word">{title}</h1>
+            </CustomLink>
+            <p className="text-content">
+              by <span className="font-bold italic">{by}</span>
+            </p>
+          </div>
+          <SocialsInfo score={score} descendants={descendants} type={type} classList="self-end" />
+        </div>
+      </div>
     );
   }
 }

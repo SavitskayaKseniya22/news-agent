@@ -2,22 +2,26 @@ import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import parse from 'html-react-parser';
 import { useState } from 'react';
-import CommentPlaceholder from './CommentPlaceholder';
+import CommentPlaceholder from '../comment-placeholder/CommentPlaceholder';
+import { useGetAllStoriesQuery } from '@/api/hackerNews';
+import CustomLinkButton from '@/components/elements/Link/Link';
 
 export default function Comment({ data }: { data: ParsedContentDetailesType }) {
   const [isItOpen, setIsItOPen] = useState(false);
   const { time, by, kids, text } = data;
 
   return (
-    <li className="comment container flex flex-col gap-4 rounded-lg border-2 bg-white p-2 sm:p-4">
+    <li className="comment container flex flex-col gap-2 rounded-lg border p-2">
       <div className="flex flex-wrap justify-between gap-2">
-        <span className="text-h6 font-bold">{by}</span>
-        <span className="text-h6 font-semibold">{time}</span>
+        <p className="text-content">
+          by <span className="font-bold italic">{by}</span>
+        </p>
+        <p className="text-caption">{time}</p>
       </div>
 
-      <p className="text-content indent-4">{parse(text)}</p>
+      <div className="text-content indent-2">{parse(text)}</div>
 
-      <button
+      <CustomLinkButton
         className="flex items-center gap-2 self-end"
         type="button"
         onClick={() => {
@@ -26,8 +30,8 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
         disabled={!kids.length}
       >
         <ChatBubbleLeftIcon className="text-palette-blue-dark h-4 w-4" />
-        <h6 className="text-caption">{kids.length} comments</h6>
-      </button>
+        <p className="text-caption">{kids.length} comments</p>
+      </CustomLinkButton>
       {isItOpen && <Comments kids={data.kids} />}
     </li>
   );
@@ -40,7 +44,7 @@ export function Comments({ kids }: { kids: number[] }) {
 
   if (isFetching)
     return (
-      <ul className="flex flex-col gap-4">
+      <ul className="flex flex-col gap-2">
         {kids.map((item) => {
           return <CommentPlaceholder key={item} />;
         })}
@@ -49,7 +53,7 @@ export function Comments({ kids }: { kids: number[] }) {
 
   if (data) {
     return (
-      <ul className="flex flex-col gap-4">
+      <ul className="flex flex-col gap-2">
         {data.length ? (
           data.map((item) => <Comment data={item} key={item.id} />)
         ) : (

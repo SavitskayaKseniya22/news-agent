@@ -15,19 +15,17 @@ function reduceDots(arr: (number | '...')[]) {
 
 export default function Pagination({
   totalItems = 0,
-  itemsPerPage = 16,
   currentPage = 1,
   onPageChange,
   isDisabled = false,
+  totalPages = 1,
 }: {
   totalItems?: number;
-  itemsPerPage?: number;
   currentPage?: number;
   onPageChange: (value: number) => void;
   isDisabled?: boolean;
+  totalPages?: number;
 }) {
-  const totalPages = totalItems ? Math.ceil(totalItems / itemsPerPage) : 1;
-
   const pages: number[] = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const filteredPages = pages.map((page) => {
