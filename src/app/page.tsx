@@ -4,16 +4,16 @@ import SignUpPanel from '../components/blocks/sign-up-panel/SignUpPanel';
 import { Quote } from '../components/blocks/quote/Quote';
 import { StoryPreviewType } from './types';
 import Spinner from '@/components/elements/Spinner/Spinner';
-import { useGetStoriesQuery } from '@/api/queryApi';
-import StoryPreview from './lib/story-preview/StoryPreview';
-import StoryPlaceholder from './lib/story-placeholder/StoryPlaceholder';
+import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
+import StoryPreview from '../components/blocks/story/Story';
+import StoryPlaceholder from '../components/blocks/story-placeholder/StoryPlaceholder';
 
 export default function Home() {
-  const { data, isError, isFetching, isLoading } = useGetStoriesQuery('top');
+  const { data, isError, isFetching, isLoading } = useGetStoriesQuery({ type: StoryType.TOP, perPage: 15 });
 
-  const mainStoryWidget = data?.[0];
-  const rightStories = data?.slice(1, 10);
-  const leftStories = data?.slice(10, 16);
+  const mainStoryWidget = data?.stories[0];
+  const rightStories = data?.stories.slice(1, 10);
+  const leftStories = data?.stories.slice(10, 16);
 
   if (isError) {
     return <div className="flex w-full items-center justify-center">An error has occurred!</div>;

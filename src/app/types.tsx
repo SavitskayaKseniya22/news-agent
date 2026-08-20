@@ -1,13 +1,5 @@
 import { PexelsResponseType } from '@/api/pexelsApi';
 
-export enum ContentType {
-  JOB = 'job',
-  STORY = 'story',
-  COMMENT = 'comment',
-  POLL = 'poll',
-  POLLOPT = 'pollopt',
-}
-
 export interface ContentDetailesType {
   id: number;
   deleted?: boolean;
@@ -32,7 +24,6 @@ export interface ParsedContentDetailesType {
   parent?: number;
   poll?: number;
   parts?: number[];
-
   time: string;
   title: string;
   score: number;
@@ -63,14 +54,4 @@ export enum StoryPreviewType {
   MEDIUM,
   BIG,
   GIGANTIC,
-}
-
-export enum ContentViewType {
-  STORY = 'story',
-  LISTING = 'listing',
-}
-
-export enum ListingType {
-  JOB = 'job',
-  QUESTION = 'question',
 }

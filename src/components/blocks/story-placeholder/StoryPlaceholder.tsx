@@ -18,7 +18,7 @@ export default function StoryPlaceholder({ length, type }: { length: number; typ
   if (type === StoryPreviewType.MEDIUM) {
     return new Array(length).fill(0).map((j, i) => (
       <li className="flex w-full animate-pulse flex-col gap-2 border-2" key={i}>
-        <div className="bg-palette-gray-light h-16 w-full grow" />
+        <div className="bg-palette-gray-light h-14 w-full grow" />
         <div className="flex flex-col items-center justify-center gap-4 p-2 text-center">
           <div className="bg-palette-gray-light h-3 w-32 grow rounded-full" />
           <div className="text-palette-gray-light flex w-full items-center justify-between gap-4">
