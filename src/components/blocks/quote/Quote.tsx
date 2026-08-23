@@ -1,4 +1,4 @@
-import { useGetQuoteOfTheDayQuery } from '@/api/quotesApi';
+import { useGetQuoteOfTheDayQuery } from '@/api/quotes-api';
 
 export function Quote() {
   const { data, isLoading, isError } = useGetQuoteOfTheDayQuery();

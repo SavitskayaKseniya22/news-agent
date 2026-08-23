@@ -1,11 +1,11 @@
 'use client';
 
-import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
-import Pagination from '@/components/blocks/pagination/Pagination';
+import { StoryType, useGetStoriesQuery } from '@/api/query-api';
+import Pagination from '@/components/blocks/pagination/pagination';
 import { StoryPreviewType } from '@/app/types';
 import { useState } from 'react';
-import StoryPreview from '../story/Story';
-import Spinner from '@/components/elements/Spinner/Spinner';
+import StoryPreview from '../story/story';
+import Spinner from '@/components/elements/spinner/spinner';
 
 export default function Stories({ itemsOnPage, pageType }: { itemsOnPage: number; pageType: StoryType }) {
   const [currentPage, setCurrentPage] = useState(1);

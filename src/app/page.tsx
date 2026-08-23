@@ -1,12 +1,12 @@
 'use client';
 
-import SignUpPanel from '../components/blocks/sign-up-panel/SignUpPanel';
-import { Quote } from '../components/blocks/quote/Quote';
+import SignUpPanel from '../components/blocks/sign-up-panel/sign-up-panel';
+import { Quote } from '../components/blocks/quote/quote';
 import { StoryPreviewType } from './types';
-import Spinner from '@/components/elements/Spinner/Spinner';
-import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
-import StoryPreview from '../components/blocks/story/Story';
-import StoryPlaceholder from '../components/blocks/story-placeholder/StoryPlaceholder';
+import Spinner from '@/components/elements/spinner/spinner';
+import { StoryType, useGetStoriesQuery } from '@/api/query-api';
+import StoryPreview from '../components/blocks/story/story';
+import StoryPlaceholder from '../components/blocks/story-placeholder/story-placeholder';
 
 export default function Home() {
   const { data, isError, isFetching, isLoading } = useGetStoriesQuery({ type: StoryType.TOP, perPage: 15 });

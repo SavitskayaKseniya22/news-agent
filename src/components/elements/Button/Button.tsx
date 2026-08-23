@@ -24,27 +24,27 @@ const variants = cva(
   },
 );
 
-type ButtonProps = React.ComponentProps<'button'> & VariantProps<typeof variants>;
+type ButtonProperties = React.ComponentProps<'button'> & VariantProps<typeof variants>;
 
-export default function Button({ className, children, view, size, ...props }: ButtonProps) {
+export default function Button({ className, children, view, size, ...properties }: ButtonProperties) {
   return (
-    <button type="button" {...props} className={clsx(variants({ view, size }), className)}>
+    <button type="button" {...properties} className={clsx(variants({ view, size }), className)}>
       {children}
     </button>
   );
 }
 
-type LinkProps = React.ComponentProps<typeof Link> &
+type LinkProperties = React.ComponentProps<typeof Link> &
   VariantProps<typeof variants> & {
     disabled?: boolean;
   };
 
-export function CustomButtonLink({ className, children, view, size, disabled = false, onClick, ...props }: LinkProps) {
+export function CustomButtonLink({ className, children, view, size, disabled = false, onClick, ...properties }: LinkProperties) {
   return (
     <Link
-      {...props}
+      {...properties}
       aria-disabled={disabled || undefined}
-      tabIndex={disabled ? -1 : props.tabIndex}
+      tabIndex={disabled ? -1 : properties.tabIndex}
       onClick={(event) => {
         if (disabled) {
           event.preventDefault();
@@ -60,7 +60,7 @@ export function CustomButtonLink({ className, children, view, size, disabled = f
   );
 }
 
-type AnchorProps = React.ComponentProps<'a'> &
+type AnchorProperties = React.ComponentProps<'a'> &
   VariantProps<typeof variants> & {
     disabled?: boolean;
   };
@@ -72,13 +72,13 @@ export function CustomButtonAnchorLink({
   size,
   disabled = false,
   onClick,
-  ...props
-}: AnchorProps) {
+  ...properties
+}: AnchorProperties) {
   return (
     <a
-      {...props}
+      {...properties}
       aria-disabled={disabled || undefined}
-      tabIndex={disabled ? -1 : props.tabIndex}
+      tabIndex={disabled ? -1 : properties.tabIndex}
       onClick={(event) => {
         if (disabled) {
           event.preventDefault();

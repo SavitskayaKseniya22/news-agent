@@ -2,17 +2,17 @@
 
 import { StoryPreviewType } from '@/app/types';
 import { useParams } from 'next/navigation';
-import { Comments } from '@/components/blocks/comment/Comment';
-import { useGetStoryQuery } from '@/api/hackerNews';
-import Story from '@/components/blocks/story/Story';
-import Spinner from '@/components/elements/Spinner/Spinner';
+import { Comments } from '@/components/blocks/comment/comment';
+import { useGetStoryQuery } from '@/api/hacker-news';
+import Story from '@/components/blocks/story/story';
+import Spinner from '@/components/elements/spinner/spinner';
 
 export default function Page() {
-  const params = useParams();
+  const parameters = useParams();
 
   const { data, isFetching, isError, refetch } = useGetStoryQuery(
-    { id: params.story as unknown as number },
-    { skip: !params.story },
+    { id: parameters.story as unknown as number },
+    { skip: !parameters.story },
   );
 
   if (isError) return <div>An error has occurred!</div>;

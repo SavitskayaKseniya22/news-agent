@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Geologica, Mulish } from 'next/font/google';
 import '../styles/styles.css';
-import Footer from '../components/blocks/footer/Footer';
+import Footer from '../components/blocks/footer/footer';
 import Providers from '../api/provider';
-import Header from '../components/blocks/header/Header';
+import Header from '../components/blocks/header/header';
 
 const mulish = Mulish({
   subsets: ['latin', 'cyrillic'],

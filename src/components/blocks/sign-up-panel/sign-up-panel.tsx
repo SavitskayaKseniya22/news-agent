@@ -1,4 +1,4 @@
-import Button from '@/components/elements/Button/Button';
+import Button from '@/components/elements/button/button';
 
 import { useForm } from 'react-hook-form';
 

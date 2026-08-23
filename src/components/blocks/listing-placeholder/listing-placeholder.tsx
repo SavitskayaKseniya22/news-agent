@@ -1,6 +1,6 @@
 export default function ListingPlaceholder({ length }: { length: number }) {
-  return new Array(length).fill(0).map((j, i) => (
-    <li className="flex h-full animate-pulse flex-col justify-center gap-4 border-2 p-2 text-center" key={i}>
+  return Array.from({ length }, (_, index) => (
+    <li className="flex h-full animate-pulse flex-col justify-center gap-4 border-2 p-2 text-center" key={index}>
       <div className="bg-palette-gray-light h-4 rounded-full" />
 
       <div className="flex grow items-center justify-between gap-4">

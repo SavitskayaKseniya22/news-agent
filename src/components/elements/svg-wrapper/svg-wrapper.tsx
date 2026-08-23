@@ -20,11 +20,11 @@ const svgWrapperVariants = cva(['inline-flex', '[&>svg]:h-full [&>svg]:w-full', 
   },
 });
 
-type Props = React.ComponentProps<'span'> & VariantProps<typeof svgWrapperVariants>;
+type Properties = React.ComponentProps<'span'> & VariantProps<typeof svgWrapperVariants>;
 
-export default function SVGWrapper({ children, className, view, size, ...props }: Props) {
+export default function SVGWrapper({ children, className, view, size, ...properties }: Properties) {
   return (
-    <span className={clsx(svgWrapperVariants({ view, size }), className)} {...props}>
+    <span className={clsx(svgWrapperVariants({ view, size }), className)} {...properties}>
       {children}
     </span>
   );

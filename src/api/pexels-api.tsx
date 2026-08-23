@@ -1,7 +1,7 @@
 import z from 'zod';
-import { baseApi } from './baseApi';
+import { baseApi } from './base-api';
 
-type GetPicturesParams = {
+type GetPicturesParameters = {
   query: string;
   per_page?: number;
   page?: number;
@@ -45,10 +45,10 @@ export type PexelsResponseType = z.infer<typeof PexelsResponseSchema>;
 
 export const pexelsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getPictures: builder.query<PexelsResponseType, GetPicturesParams>({
-      query: (params) => ({
+    getPictures: builder.query<PexelsResponseType, GetPicturesParameters>({
+      query: (parameters) => ({
         url: '/pictures',
-        params,
+        params: parameters,
       }),
       transformResponse: (response: unknown) => {
         return PexelsResponseSchema.parse(response);

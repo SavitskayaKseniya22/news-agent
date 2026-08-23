@@ -1,4 +1,4 @@
-import Logo from '@/components/elements/logo/Logo';
+import Logo from '@/components/elements/logo/logo';
 import Link from 'next/dist/client/link';
 import Image from 'next/image';
 

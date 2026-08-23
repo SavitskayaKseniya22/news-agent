@@ -1,5 +1,5 @@
 import { FullStoryType } from '@/app/types';
-import { baseApi } from './baseApi';
+import { baseApi } from './base-api';
 
 export enum StoryType {
   TOP = 'top',
@@ -10,7 +10,7 @@ export enum StoryType {
   JOB = 'job',
 }
 
-type GetStoriesParams = {
+type GetStoriesParameters = {
   type: StoryType;
   page?: number;
   perPage?: number;
@@ -29,7 +29,7 @@ type GetStoriesResponse = {
 
 export const queryApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getStories: builder.query<GetStoriesResponse, GetStoriesParams>({
+    getStories: builder.query<GetStoriesResponse, GetStoriesParameters>({
       query: ({ type, page = 1, perPage = 16 }) => ({
         url: '/stories',
         params: {

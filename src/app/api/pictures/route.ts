@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+  const searchParameters = request.nextUrl.searchParams;
 
-  const query = searchParams.get('query');
+  const query = searchParameters.get('query');
 
   if (!query) {
     return NextResponse.json({ error: 'Query is required' }, { status: 400 });
@@ -11,9 +11,9 @@ export async function GET(request: NextRequest) {
 
   const pexelsUrl = new URL('https://api.pexels.com/v1/search');
 
-  searchParams.forEach((value, key) => {
+  for (const [key, value] of searchParameters.entries()) {
     pexelsUrl.searchParams.set(key, value);
-  });
+  }
 
   const response = await fetch(pexelsUrl, {
     headers: {

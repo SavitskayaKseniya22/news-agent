@@ -1,4 +1,4 @@
-import { baseApi } from './baseApi';
+import { baseApi } from './base-api';
 import { z } from 'zod';
 
 export const QuoteSchema = z.object({

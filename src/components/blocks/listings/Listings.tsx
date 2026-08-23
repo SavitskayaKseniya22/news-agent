@@ -2,11 +2,11 @@
 
 import { ParsedContentDetailesType, StoryPreviewType } from '@/app/types';
 import Link from 'next/dist/client/link';
-import { StoryType, useGetStoriesQuery } from '@/api/queryApi';
-import SocialsInfo from '../socials-info/SocialsInfo';
+import { StoryType, useGetStoriesQuery } from '@/api/query-api';
+import SocialsInfo from '../socials-info/socials-info';
 import { useState } from 'react';
-import Pagination from '../pagination/Pagination';
-import Spinner from '@/components/elements/Spinner/Spinner';
+import Pagination from '../pagination/pagination';
+import Spinner from '@/components/elements/spinner/spinner';
 
 function Listing({ pageType, data }: { pageType: StoryType; data: ParsedContentDetailesType }) {
   const { title, time, score, descendants, by, url, id } = data;

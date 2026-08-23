@@ -1,10 +1,10 @@
 import { StoryPreviewType, FullStoryType } from '@/app/types';
 import Link from 'next/link';
 import Image from 'next/image';
-import SocialsInfo from '../socials-info/SocialsInfo';
-import { CustomAnchorLink, CustomLink } from '@/components/elements/Link/Link';
+import SocialsInfo from '../socials-info/socials-info';
+import { CustomAnchorLink, CustomLink } from '@/components/elements/link/link';
 import parse from 'html-react-parser';
-import RefetchButton from '@/components/elements/refetch-button/RefetchButton';
+import RefetchButton from '@/components/elements/refetch-button/refetch-button';
 
 export default function Story({
   type,
@@ -18,7 +18,7 @@ export default function Story({
   const { story, photo } = data;
   const { title, time, score, descendants, by, type: storyType, id } = story;
 
-  const imageSrc = photo?.photos[0]?.src?.medium || '/image-placeholder.png';
+  const imageSource = photo?.photos[0]?.src?.medium || '/image-placeholder.png';
   const imageAlt = photo?.photos[0]?.alt || story.title;
 
   const detailedTime = new Date(time).toLocaleDateString('en-US', {
@@ -34,7 +34,7 @@ export default function Story({
             <Image
               fill
               sizes="20vw"
-              src={imageSrc}
+              src={imageSource}
               alt={imageAlt}
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk4OSsBwAAtgCTDcYLIwAAAABJRU5ErkJggg=="
@@ -63,7 +63,7 @@ export default function Story({
             <Image
               fill
               sizes="20vw"
-              src={imageSrc}
+              src={imageSource}
               alt={imageAlt}
               placeholder="blur"
               className="object-cover"
@@ -115,7 +115,7 @@ export default function Story({
           <Image
             fill
             sizes="30vw"
-            src={imageSrc}
+            src={imageSource}
             alt={imageAlt}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP0+Q8AAZ0BTSKFuNAAAAAASUVORK5CYII="

@@ -1,5 +1,5 @@
 import { ParsedContentDetailesType, ContentDetailesType } from '@/app/types';
-import { refineStoryResponse } from '@/app/utils';
+import { refineStoryResponse } from '@/app/utilities';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const hackerNewsApi = createApi({
@@ -20,13 +20,13 @@ export const hackerNewsApi = createApi({
       queryFn: async (ids: number[]) => {
         const promises = ids.map((id) =>
           fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
-            .then((res) => res.json())
+            .then((resource) => resource.json())
             .then((story: ContentDetailesType) => {
               const refinedStory = refineStoryResponse({
                 response: story,
               });
               if (refinedStory === null) {
-                return Promise.reject();
+                throw undefined;
               }
               return refinedStory;
             }),
@@ -35,8 +35,8 @@ export const hackerNewsApi = createApi({
         const results = await Promise.allSettled(promises);
 
         const filtredResult = results
-          .filter((res) => res.status === 'fulfilled')
-          .map((res) => (res as PromiseFulfilledResult<ParsedContentDetailesType>).value);
+          .filter((resource) => resource.status === 'fulfilled')
+          .map((resource) => (resource as PromiseFulfilledResult<ParsedContentDetailesType>).value);
 
         return {
           data: filtredResult,

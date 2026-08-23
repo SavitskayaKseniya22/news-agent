@@ -1,4 +1,4 @@
-import { PexelsResponseType } from '@/api/pexelsApi';
+import { PexelsResponseType } from '@/api/pexels-api';
 
 export interface ContentDetailesType {
   id: number;

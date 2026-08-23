@@ -1,7 +1,7 @@
 'use client';
 
-import { StoryType } from '@/api/queryApi';
-import Listings from '@/components/blocks/listings/Listings';
+import { StoryType } from '@/api/query-api';
+import Listings from '@/components/blocks/listings/listings';
 
 export default function Page() {
   return <Listings pageType={StoryType.JOB} itemsOnPage={24} />;

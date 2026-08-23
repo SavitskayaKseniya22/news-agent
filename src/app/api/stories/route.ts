@@ -1,7 +1,7 @@
-import { PexelsResponseType } from '@/api/pexelsApi';
-import { StoryType } from '@/api/queryApi';
+import { PexelsResponseType } from '@/api/pexels-api';
+import { StoryType } from '@/api/query-api';
 import { ContentDetailesType, ParsedContentDetailesType } from '@/app/types';
-import { refineStoryResponse } from '@/app/utils';
+import { refineStoryResponse } from '@/app/utilities';
 import { NextRequest, NextResponse } from 'next/server';
 const storyEndpoints = {
   top: 'topstories',
@@ -13,12 +13,12 @@ const storyEndpoints = {
 } as const;
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
+  const searchParameters = request.nextUrl.searchParams;
 
-  const type = searchParams.get('type') as StoryType;
+  const type = searchParameters.get('type') as StoryType;
 
-  const page = Number(searchParams.get('page') ?? 1);
-  const perPage = Number(searchParams.get('perPage') ?? 20);
+  const page = Number(searchParameters.get('page') ?? 1);
+  const perPage = Number(searchParameters.get('perPage') ?? 20);
 
   // Валидация type
   if (!type || !(type in storyEndpoints)) {

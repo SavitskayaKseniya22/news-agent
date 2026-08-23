@@ -1,10 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/dist/client/components/navigation';
-import Logo from '@/components/elements/logo/Logo';
-import { CustomButtonAnchorLink, CustomButtonLink } from '@/components/elements/Button/Button';
+import Logo from '@/components/elements/logo/logo';
+import { CustomButtonAnchorLink, CustomButtonLink } from '@/components/elements/button/button';
 import clsx from 'clsx';
-import { CustomLink } from '@/components/elements/Link/Link';
+import { CustomLink } from '@/components/elements/link/link';
 
 export default function Header() {
   const pathname = usePathname();

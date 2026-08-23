@@ -1,6 +1,6 @@
 import { ContentDetailesType, ParsedContentDetailesType } from './types';
 
-export function parseUnixTimeStamp(timestamp: number) {
+export function parseUnixTimestamp(timestamp: number) {
   const dateObject = new Date(timestamp * 1000);
   return `${dateObject.toLocaleDateString()} ${dateObject.toLocaleTimeString()}`;
 }
@@ -22,7 +22,7 @@ export function refineStoryResponse({ response }: { response: ContentDetailesTyp
   }
   return {
     ...response,
-    time: (response.time && parseUnixTimeStamp(response.time)) || 'Some time ago',
+    time: (response.time && parseUnixTimestamp(response.time)) || 'Some time ago',
     title: response.title ? refineTitle(response.title) : 'Item Without Title',
     score: response.score || 0,
     descendants: response.descendants || 0,

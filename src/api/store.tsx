@@ -1,6 +1,7 @@
+/* eslint-disable unicorn/prefer-spread */
 import { configureStore } from '@reduxjs/toolkit';
-import { baseApi } from './baseApi';
-import { hackerNewsApi } from './hackerNews';
+import { baseApi } from './base-api';
+import { hackerNewsApi } from './hacker-news';
 
 const store = configureStore({
   reducer: {

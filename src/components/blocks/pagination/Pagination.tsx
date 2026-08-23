@@ -1,5 +1,5 @@
-import Button from '@/components/elements/Button/Button';
-import SVGWrapper from '@/components/elements/SVGWrapper/SVGWrapper';
+import Button from '@/components/elements/button/button';
+import SVGWrapper from '@/components/elements/svg-wrapper/svg-wrapper';
 import {
   ChevronLeftIcon,
   ChevronDoubleLeftIcon,
@@ -9,8 +9,8 @@ import {
 
 const emptyString = '...';
 
-function reduceDots(arr: (number | '...')[]) {
-  return arr.filter((elem, index) => elem !== emptyString || arr[index - 1] !== emptyString);
+function reduceDots(array: (number | '...')[]) {
+  return array.filter((element, index) => element !== emptyString || array[index - 1] !== emptyString);
 }
 
 export default function Pagination({
@@ -29,12 +29,10 @@ export default function Pagination({
   const pages: number[] = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const filteredPages = pages.map((page) => {
-    const isItOnMargin = page === 1 || page === pages[pages.length - 1];
-    const isItInMiddleThree = page === currentPage - 1 || page === currentPage + 1 || page === currentPage;
+    const isItOnMargin = page === 1 || page === pages.at(-1);
+    const isItInMiddleThree = [currentPage - 1, currentPage, currentPage + 1].includes(page);
 
-    if (isItOnMargin || isItInMiddleThree) {
-      return page;
-    } else return emptyString;
+    return isItOnMargin || isItInMiddleThree ? page : emptyString;
   });
 
   const reducedPages = reduceDots(filteredPages);
@@ -63,9 +61,9 @@ export default function Pagination({
       </Button>
 
       <div className="flex items-center justify-center gap-4 p-1">
-        {reducedPages.map((page, i) => {
+        {reducedPages.map((page, index) => {
           return page == emptyString ? (
-            <Button view={'transparent'} key={page + i} size="small" disabled>
+            <Button view={'transparent'} key={page + index} size="small" disabled>
               {page}
             </Button>
           ) : (

@@ -2,9 +2,9 @@ import { ParsedContentDetailesType } from '@/app/types';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import parse from 'html-react-parser';
 import { useState } from 'react';
-import CommentPlaceholder from '../comment-placeholder/CommentPlaceholder';
-import { useGetAllStoriesQuery } from '@/api/hackerNews';
-import CustomLinkButton from '@/components/elements/Link/Link';
+import CommentPlaceholder from '../comment-placeholder/comment-placeholder';
+import { useGetAllStoriesQuery } from '@/api/hacker-news';
+import CustomLinkButton from '@/components/elements/link/link';
 
 export default function Comment({ data }: { data: ParsedContentDetailesType }) {
   const [isItOpen, setIsItOPen] = useState(false);
@@ -27,7 +27,7 @@ export default function Comment({ data }: { data: ParsedContentDetailesType }) {
         onClick={() => {
           setIsItOPen((state) => !state);
         }}
-        disabled={!kids.length}
+        disabled={kids.length === 0}
       >
         <ChatBubbleLeftIcon className="text-palette-blue-dark h-4 w-4" />
         <p className="text-caption">{kids.length} comments</p>
@@ -54,7 +54,7 @@ export function Comments({ kids }: { kids: number[] }) {
   if (data) {
     return (
       <ul className="flex flex-col gap-2">
-        {data.length ? (
+        {data.length > 0 ? (
           data.map((item) => <Comment data={item} key={item.id} />)
         ) : (
           <li className="text-content">No comments here yet</li>
