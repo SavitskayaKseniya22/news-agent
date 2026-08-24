@@ -6,16 +6,15 @@ const variants = cva(
   [
     'text-inherit',
     'transition-colors duration-150',
-    'disabled:cursor-default disabled:opacity-20',
-    'aria-disabled:cursor-default aria-disabled:opacity-20',
-    'aria-disabled:pointer-events-none',
     'cursor-pointer',
+    'disabled:pointer-events-none disabled:opacity-20',
+    'aria-disabled:pointer-events-none aria-disabled:opacity-20',
   ],
   {
     variants: {
       view: {
-        primary: 'enabled:hover:text-palette-blue-dark',
-        secondary: 'enabled:hover:text-palette-accent-hover',
+        primary: 'hover:text-palette-blue-dark',
+        secondary: 'hover:text-palette-accent-hover',
       },
     },
     defaultVariants: {
@@ -39,20 +38,12 @@ type LinkProperties = React.ComponentProps<typeof Link> &
     disabled?: boolean;
   };
 
-export function CustomLink({ className, children, view, disabled = false, onClick, ...properties }: LinkProperties) {
+export function CustomLink({ className, children, view, disabled = false, ...properties }: LinkProperties) {
   return (
     <Link
       {...properties}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : properties.tabIndex}
-      onClick={(event) => {
-        if (disabled) {
-          event.preventDefault();
-          return;
-        }
-
-        onClick?.(event);
-      }}
       className={clsx(variants({ view }), className)}
     >
       {children}
@@ -65,20 +56,12 @@ type AnchorProperties = React.ComponentProps<'a'> &
     disabled?: boolean;
   };
 
-export function CustomAnchorLink({ className, children, view, disabled = false, onClick, ...properties }: AnchorProperties) {
+export function CustomAnchorLink({ className, children, view, disabled = false, ...properties }: AnchorProperties) {
   return (
     <a
       {...properties}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : properties.tabIndex}
-      onClick={(event) => {
-        if (disabled) {
-          event.preventDefault();
-          return;
-        }
-
-        onClick?.(event);
-      }}
       className={clsx(variants({ view }), className)}
     >
       {children}

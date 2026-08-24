@@ -1,3 +1,4 @@
+import { CustomAnchorLink } from '@/components/elements/link/link';
 import Logo from '@/components/elements/logo/logo';
 import Link from 'next/dist/client/link';
 import Image from 'next/image';
@@ -7,6 +8,12 @@ export default function Footer() {
     <footer className="flex w-full items-center justify-center border-t">
       <div className="container flex items-center justify-between p-3">
         <Logo size="small" />
+        <p>
+          Images by{' '}
+          <CustomAnchorLink href="https://www.pexels.com/" target="_blank">
+            Pexels
+          </CustomAnchorLink>
+        </p>
         <Link href="https://github.com/SavitskayaKseniya22" target="_blank">
           <Image src="/github-black.png" alt="GitHub" width={24} height={24} />
         </Link>
