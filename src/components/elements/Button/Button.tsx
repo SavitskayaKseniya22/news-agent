@@ -39,20 +39,12 @@ type LinkProperties = React.ComponentProps<typeof Link> &
     disabled?: boolean;
   };
 
-export function CustomButtonLink({ className, children, view, size, disabled = false, onClick, ...properties }: LinkProperties) {
+export function CustomButtonLink({ className, children, view, size, disabled = false, ...properties }: LinkProperties) {
   return (
     <Link
       {...properties}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : properties.tabIndex}
-      onClick={(event) => {
-        if (disabled) {
-          event.preventDefault();
-          return;
-        }
-
-        onClick?.(event);
-      }}
       className={clsx(variants({ view, size }), className)}
     >
       {children}
@@ -71,7 +63,6 @@ export function CustomButtonAnchorLink({
   view,
   size,
   disabled = false,
-  onClick,
   ...properties
 }: AnchorProperties) {
   return (
@@ -79,14 +70,7 @@ export function CustomButtonAnchorLink({
       {...properties}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : properties.tabIndex}
-      onClick={(event) => {
-        if (disabled) {
-          event.preventDefault();
-          return;
-        }
 
-        onClick?.(event);
-      }}
       className={clsx(variants({ view, size }), className)}
     >
       {children}
